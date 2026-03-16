@@ -14,7 +14,7 @@ function App() {
     <div className="min-h-screen bg-background text-white font-sans selection:bg-cyan-500 selection:text-white">
       {/* Skip Link for Accessibility */}
       <a href="#main-content" className="skip-link">
-        Skip to main content
+       
       </a>
 
       <ParticleBackground />
