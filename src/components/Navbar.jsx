@@ -1,0 +1,147 @@
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { navLinks } from '../data';
+
+const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const [activeSection, setActiveSection] = useState('home');
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+
+            // Update active section based on scroll position
+            const sections = navLinks.map(link => document.getElementById(link.id));
+            const scrollPosition = window.scrollY + 100;
+
+            sections.forEach(section => {
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        setActiveSection(section.id);
+                    }
+                }
+            });
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+        setIsOpen(false);
+    };
+
+    return (
+        <nav
+            className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+                scrolled ? 'bg-[#030712]/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'
+            }`}
+        >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between items-center">
+                    {/* Logo */}
+                    <motion.a
+                        href="#home"
+                        onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}
+                        className="text-xl md:text-2xl font-display font-bold text-white flex items-center gap-1 group"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        Portfolio
+                        <span className="w-2 h-2 rounded-full bg-cyan-500 group-hover:shadow-[0_0_10px_rgba(6,182,212,0.8)] transition-shadow"></span>
+                    </motion.a>
+
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:flex items-center gap-8">
+                        {navLinks.map(link => (
+                            <a
+                                key={link.id}
+                                href={`#${link.id}`}
+                                onClick={(e) => { e.preventDefault(); scrollToSection(link.id); }}
+                                className={`text-sm font-medium tracking-wider uppercase transition-colors relative group py-2
+                                    ${activeSection === link.id ? 'text-cyan-400' : 'text-gray-300 hover:text-white'}
+                                `}
+                            >
+                                {link.label}
+                                <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-cyan-500 transform origin-left transition-transform duration-300
+                                    ${activeSection === link.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}
+                                `}></span>
+                            </a>
+                        ))}
+                    </div>
+
+                    {/* Connect Button (Desktop) */}
+                    <div className="hidden md:block">
+                        <motion.a
+                            href="#contact"
+                            onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
+                            className="bg-transparent border border-cyan-500/50 text-cyan-400 px-6 py-2.5 rounded-full text-sm font-medium 
+                                       hover:bg-cyan-500/10 hover:border-cyan-400 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-all"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            Connect
+                        </motion.a>
+                    </div>
+
+                    {/* Mobile Menu Button */}
+                    <div className="md:hidden flex items-center">
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="text-gray-300 hover:text-white focus:outline-none p-2"
+                        >
+                            {isOpen ? <HiX className="h-6 w-6" /> : <HiMenuAlt3 className="h-6 w-6" />}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Mobile Navigation */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="md:hidden bg-[#030712]/95 backdrop-blur-lg border-b border-white/10"
+                    >
+                        <div className="px-4 pt-2 pb-6 space-y-1">
+                            {navLinks.map(link => (
+                                <a
+                                    key={link.id}
+                                    href={`#${link.id}`}
+                                    onClick={(e) => { e.preventDefault(); scrollToSection(link.id); }}
+                                    className={`block px-3 py-4 text-base font-medium tracking-wide border-b border-white/5
+                                        ${activeSection === link.id ? 'text-cyan-400 bg-white/5' : 'text-gray-300 hover:text-white hover:bg-white/5'}
+                                    `}
+                                >
+                                    {link.label}
+                                </a>
+                            ))}
+                            <div className="pt-4">
+                                <a
+                                    href="#contact"
+                                    onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
+                                    className="block w-full text-center bg-cyan-500/10 border border-cyan-500/50 text-cyan-400 px-6 py-3 rounded-md font-medium"
+                                >
+                                    Connect
+                                </a>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </nav>
+    );
+};
+
+export default Navbar;

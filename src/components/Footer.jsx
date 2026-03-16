@@ -1,0 +1,21 @@
+import { personalInfo } from '../data';
+
+const Footer = () => {
+    return (
+        <footer className="py-12 border-t border-white/5 bg-[#030712]">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p className="text-gray-500 text-sm">
+                    © {new Date().getFullYear()} <span className="text-white font-medium">{personalInfo.name}</span>. 
+                    Built with <span className="text-cyan-400">React</span> & <span className="text-violet-400">Tailwind CSS</span>
+                </p>
+                <div className="mt-4 flex justify-center gap-6">
+                    <a href={personalInfo.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-400 transition-colors text-xs uppercase tracking-widest font-bold">GitHub</a>
+                    <a href={personalInfo.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-400 transition-colors text-xs uppercase tracking-widest font-bold">LinkedIn</a>
+                    <a href={personalInfo.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-400 transition-colors text-xs uppercase tracking-widest font-bold">Twitter</a>
+                </div>
+            </div>
+        </footer>
+    );
+};
+
+export default Footer;
