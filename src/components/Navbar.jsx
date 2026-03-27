@@ -41,17 +41,17 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-                scrolled ? 'bg-[#030712]/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-4'
+            className={`fixed top-0 w-full z-50 transition-colors duration-300 h-20 flex items-center ${
+                scrolled ? 'bg-[#030712]/80 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
             }`}
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div className="flex justify-between items-center">
                     {/* Logo */}
                     <motion.a
                         href="#home"
                         onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}
-                        className="text-xl md:text-2xl font-display font-bold text-white flex items-center gap-1 group"
+                        className="text-xl md:text-2xl font-display font-bold text-white flex items-center gap-1 group shrink-0"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -79,7 +79,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Connect Button (Desktop) */}
-                    <div className="hidden md:block">
+                    <div className="hidden md:block shrink-0">
                         <motion.a
                             href="#contact"
                             onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
@@ -93,13 +93,13 @@ const Navbar = () => {
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center">
+                    <div className="md:hidden flex items-center shrink-0">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-gray-300 hover:text-white focus:outline-none p-2 w-10 h-10 flex items-center justify-center transition-all bg-white/5 rounded-lg border border-white/10"
+                            className="text-gray-300 hover:text-white focus:outline-none w-10 h-10 flex items-center justify-center bg-white/5 rounded-lg border border-white/10 hover:border-cyan-500/50 transition-colors"
                             aria-label="Toggle Menu"
                         >
-                            {isOpen ? <HiX className="h-6 w-6" /> : <HiMenuAlt3 className="h-6 w-6" />}
+                            {isOpen ? <HiX className="w-6 h-6" /> : <HiMenuAlt3 className="w-6 h-6" />}
                         </button>
                     </div>
                 </div>
