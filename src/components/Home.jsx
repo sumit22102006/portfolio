@@ -23,13 +23,13 @@ const Home = () => {
                             {personalInfo.greeting}
                         </h2>
                         
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight">
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight">
                             I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">
                                 {personalInfo.name}
                             </span>
                         </h1>
                         
-                        <div className="text-2xl md:text-3xl text-gray-300 font-medium h-[40px]">
+                        <div className="text-xl md:text-3xl text-gray-300 font-medium min-h-[40px]">
                             <TypeAnimation
                                 sequence={personalInfo.roles.flatMap(role => [role, 2000])}
                                 wrapper="span"
@@ -38,11 +38,11 @@ const Home = () => {
                             />
                         </div>
                         
-                        <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
+                        <p className="text-gray-400 text-base md:text-lg max-w-xl leading-relaxed">
                             {personalInfo.summary || personalInfo.tagline}
                         </p>
                         
-                        <div className="flex gap-4 mt-4">
+                        <div className="flex flex-wrap gap-4 mt-4">
                             {[
                                 { icon: FaGithub, href: personalInfo.socials.github, label: "GitHub" },
                                 { icon: FaLinkedinIn, href: personalInfo.socials.linkedin, label: "LinkedIn" },
@@ -54,12 +54,12 @@ const Home = () => {
                                     href={social.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]"
+                                    className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]"
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}
                                     aria-label={social.label}
                                 >
-                                    <social.icon className="w-5 h-5" />
+                                    <social.icon className="w-4 h-4 md:w-5 md:h-5" />
                                 </motion.a>
                             ))}
                         </div>
@@ -67,16 +67,16 @@ const Home = () => {
 
                     {/* Right Content - Profile Image */}
                     <motion.div
-                        className="relative flex justify-center lg:justify-end items-center"
+                        className="relative flex justify-center lg:justify-end items-center mt-8 lg:mt-0"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         {/* Glowing backdrop blobs */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[400px] h-[300px] md:h-[400px] bg-cyan-500/20 rounded-full blur-[80px]"></div>
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/4 -translate-y-1/4 w-[250px] md:w-[350px] h-[250px] md:h-[350px] bg-violet-600/20 rounded-full blur-[80px]"></div>
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-cyan-500/20 rounded-full blur-[60px] md:blur-[80px]"></div>
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/4 -translate-y-1/4 w-[200px] md:w-[350px] h-[200px] md:h-[350px] bg-violet-600/20 rounded-full blur-[60px] md:blur-[80px]"></div>
 
-                        <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-2 border-cyan-500/30 p-2 z-10 group">
+                        <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full border-2 border-cyan-500/30 p-2 z-10 group">
                             <div className="w-full h-full rounded-full overflow-hidden border border-white/10 bg-[#030712]">
                                 <img
                                     src={profileImg || defaultImg}

@@ -21,7 +21,7 @@ function App() {
 
       <Navbar />
 
-      <main id="main-content" className="flex flex-col gap-20 py-20">
+      <main id="main-content" className="flex flex-col gap-12 md:gap-20 py-12 md:py-20">
         <Home />
         <About />
         <Skills />

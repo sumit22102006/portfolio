@@ -42,11 +42,11 @@ const Navbar = () => {
     return (
         <nav
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-                scrolled ? 'bg-[#030712]/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'
+                scrolled ? 'bg-[#030712]/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-4'
             }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <motion.a
                         href="#home"
@@ -96,7 +96,8 @@ const Navbar = () => {
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-gray-300 hover:text-white focus:outline-none p-2"
+                            className="text-gray-300 hover:text-white focus:outline-none p-2 w-10 h-10 flex items-center justify-center transition-all bg-white/5 rounded-lg border border-white/10"
+                            aria-label="Toggle Menu"
                         >
                             {isOpen ? <HiX className="h-6 w-6" /> : <HiMenuAlt3 className="h-6 w-6" />}
                         </button>
