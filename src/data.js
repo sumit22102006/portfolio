@@ -11,7 +11,8 @@ export const personalInfo = {
   socials: {
     github: "https://github.com/sumit22102006",
     linkedin: "https://www.linkedin.com/in/sumit-kumar-1977023a1",
-    twitter: "#",
+    twitter: "https://x.com/SumitKumar36900",
+    youtube: "https://www.youtube.com/@SumitKumar-2210M"
   }
 };
 
