@@ -2,7 +2,7 @@
 
 export const personalInfo = {
   name: "Sumit Kumar",
-  greeting: "Hello, I'm",
+  greeting: "Hello ",
   roles: ["Full-Stack Developer", "MERN Stack Specialist", "UI/UX Designer"],
   summary: "I am a passionate Computer Engineering student with a deep love for coding and building real-world applications.",
   email: "sumit.m.kumar.cg@gmail.com",
