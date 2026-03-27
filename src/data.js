@@ -80,7 +80,7 @@ export const projects = [
     description: "A stunning landing page recreation of Adobe's website showcasing modern frontend development techniques.",
     techStack: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/sumit22102006",
-    liveDemo: "#",
+    liveDemo: "https://adobe-ashen.vercel.app/ ",
     image: "adobe",
   },
 ];
