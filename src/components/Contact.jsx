@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import {
     HiMail, HiPhone, HiLocationMarker, HiPaperAirplane
 } from 'react-icons/hi';
-import { FaGithub, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { personalInfo } from '../data';
 
 const Contact = () => {
@@ -95,6 +95,7 @@ const Contact = () => {
                                     { icon: FaGithub, href: personalInfo.socials.github, label: 'GitHub' },
                                     { icon: FaLinkedinIn, href: personalInfo.socials.linkedin, label: 'LinkedIn' },
                                     { icon: FaTwitter, href: personalInfo.socials.twitter, label: 'Twitter' },
+                                    { icon: FaYoutube, href: personalInfo.socials.youtube, label: 'YouTube' },
                                 ].map((social, idx) => (
                                     <a
                                         key={idx}

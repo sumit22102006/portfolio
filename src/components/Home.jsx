@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { FaGithub, FaLinkedinIn, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn, FaTwitter, FaEnvelope, FaYoutube } from 'react-icons/fa';
 import { personalInfo } from '../data';
 import profileImg from '../assets/profile-image.jpeg';
 
@@ -47,6 +47,7 @@ const Home = () => {
                                 { icon: FaGithub, href: personalInfo.socials.github, label: "GitHub" },
                                 { icon: FaLinkedinIn, href: personalInfo.socials.linkedin, label: "LinkedIn" },
                                 { icon: FaTwitter, href: personalInfo.socials.twitter, label: "Twitter" },
+                                { icon: FaYoutube, href: personalInfo.socials.youtube, label: "YouTube" },
                                 { icon: FaEnvelope, href: `mailto:${personalInfo.email}`, label: "Email" }
                             ].map((social, index) => (
                                 <motion.a
