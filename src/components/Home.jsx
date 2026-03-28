@@ -64,6 +64,23 @@ const Home = () => {
                                 </motion.a>
                             ))}
                         </div>
+
+                        {/* Resume Button */}
+                        <div className="mt-8 flex flex-wrap gap-4">
+                            <motion.a
+                                href="/Sumit_Kumar_Resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-8 py-3 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 font-medium hover:bg-cyan-500 hover:text-white transition-all duration-300 flex items-center gap-2 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <span>Resume</span>
+                                <svg className="w-5 h-5 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </motion.a>
+                        </div>
                     </motion.div>
 
                     {/* Right Content - Profile Image */}
