@@ -68,7 +68,7 @@ const Home = () => {
                         {/* Resume Button */}
                         <div className="mt-8 flex flex-wrap gap-4">
                             <motion.a
-                                href="/Sumit_Kumar_Resume.pdf"
+                                href="/sumit kumar resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-8 py-3 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 font-medium hover:bg-cyan-500 hover:text-white transition-all duration-300 flex items-center gap-2 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)]"
