@@ -4,7 +4,7 @@ export const personalInfo = {
   name: "Sumit Kumar",
   greeting: "Hello ",
   roles: ["Full-Stack Developer", "MERN Stack Specialist", "UI/UX Designer"],
-  summary: "I am a passionate Computer Engineering student with a deep love for coding and building real-world applications.",
+  summary: "I am a passionate Computer Engineering student with a deep love for coding and building real-world applications. Specialized in crafting high-performance web experiences with the MERN stack (MongoDB, Express, React, Node.js), I bridge the gap between design and functionality to deliver impactful digital solutions. Currently focused on mastering modern web architectures and creating user-centric applications that solve real-world challenges. Beyond my technical skills, I am a lifelong learner committed to writing clean, scalable code and contributing to innovative projects that make a difference. My goal is to build software that is not only functional but also intuitive and visually compelling. With extensive experience in cloning and building responsive UI's for global brands, I bring a detail-oriented approach to every challenge I undertake. I am always looking for opportunities to collaborate on ambitious projects and push the boundaries of what's possible on the web.",
   email: "sumit.m.kumar.cg@gmail.com",
   phone: "+91 8809839939",
   location: "Bhagalpur, Bihar",

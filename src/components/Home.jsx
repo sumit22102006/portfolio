@@ -8,7 +8,7 @@ const Home = () => {
     const defaultImg = "https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&h=400&fit=crop";
 
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center pt-20">
+        <section id="home" className="min-h-screen flex items-center justify-center pt-2">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                     
@@ -41,6 +41,13 @@ const Home = () => {
                         <p className="text-gray-400 text-base md:text-lg max-w-xl leading-relaxed">
                             {personalInfo.summary || personalInfo.tagline}
                         </p>
+
+                        
+
+
+
+
+
                         
                         <div className="flex flex-wrap gap-4 mt-4">
                             {[
