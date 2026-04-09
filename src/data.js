@@ -92,7 +92,7 @@ export const hackathons = [
     description: "A comprehensive agricultural platform designed to empower farmers with market insights, bio-fertilizer recommendations, AI voice assistant features, and community networking. Built during an intensive hackathon to solve real-world farming challenges.",
     techStack: ["React", "FastAPI", "Node.js", "AI/ML"],
     github: "https://github.com/sumit22102006/AgriSaar",
-    liveDemo: "https://agrisaar.vercel.app/",
+    liveDemo: "https://agri-saar-s.vercel.app/",
     image: "agrisaar",
     award: "Hackathon Entry",
     features: [
