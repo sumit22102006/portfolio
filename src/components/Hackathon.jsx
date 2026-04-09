@@ -40,16 +40,30 @@ const Hackathon = () => {
                             transition={{ delay: index * 0.15 }}
                             whileHover={{ y: -5 }}
                         >
-                            {/* Hackathon Image */}
-                            <div className="relative w-full h-56 md:h-72 overflow-hidden">
-                                <img
-                                    src={hackathon.image === 'agrisaar' ? hackathonImages.agrisaar : hackathon.image}
-                                    alt={hackathon.title}
-                                    loading="lazy"
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/40 to-transparent"></div>
-                                <div className="absolute top-4 left-4 bg-emerald-500/80 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                            {/* Hackathon Image/Preview */}
+                            <div className="relative w-full h-56 md:h-72 overflow-hidden bg-[#030712]">
+                                {hackathon.liveDemo && hackathon.liveDemo !== '#' ? (
+                                    <div className="w-full h-full relative group-hover:scale-105 transition-transform duration-700">
+                                        <iframe 
+                                            src={hackathon.liveDemo} 
+                                            title={`${hackathon.title} Preview`}
+                                            className="w-[150%] h-[150%] border-0 origin-top-left scale-75 pointer-events-none"
+                                            scrolling="no"
+                                            tabIndex={-1}
+                                        />
+                                        {/* Overlay to prevent interaction */}
+                                        <div className="absolute inset-0 z-10 bg-transparent"></div>
+                                    </div>
+                                ) : (
+                                    <img
+                                        src={hackathon.image === 'agrisaar' ? hackathonImages.agrisaar : hackathon.image}
+                                        alt={hackathon.title}
+                                        loading="lazy"
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    />
+                                )}
+                                <div className="absolute inset-0 z-20 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/40 to-transparent pointer-events-none"></div>
+                                <div className="absolute z-30 top-4 left-4 bg-emerald-500/80 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
                                     {hackathon.award ? hackathon.award : "Hackathon Project"}
                                 </div>
                             </div>
