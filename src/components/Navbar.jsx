@@ -51,12 +51,11 @@ const Navbar = () => {
                     <motion.a
                         href="#home"
                         onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}
-                        className="text-xl md:text-2xl font-display font-bold text-white flex items-center gap-1 group shrink-0"
+                        className="flex items-center justify-center w-10 h-10 bg-cyan-500 text-[#030712] font-display font-bold text-xl rounded-full group shrink-0 hover:shadow-[0_0_15px_rgba(6,182,212,0.6)] transition-shadow"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        Portfolio
-                        <span className="w-2 h-2 rounded-full bg-cyan-500 group-hover:shadow-[0_0_10px_rgba(6,182,212,0.8)] transition-shadow"></span>
+                        sk
                     </motion.a>
 
                     {/* Desktop Navigation */}
