@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaYoutube } from 'react-icons/fa';
 import { projects } from '../data';
 
 const projectImages = {
@@ -76,25 +76,38 @@ const Projects = () => {
                                 </div>
 
                                 {/* Links */}
-                                <div className="flex items-center gap-4 mt-auto">
+                                <div className="flex flex-wrap items-center gap-3 mt-auto">
                                     <a
                                         href={project.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-500/50 text-white hover:text-cyan-400 hover:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all text-sm font-medium"
+                                        className="flex-1 min-w-[100px] flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-500/50 text-white hover:text-cyan-400 hover:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all text-xs sm:text-sm font-medium"
                                         aria-label={`View ${project.title} on GitHub`}
                                     >
-                                        <FaGithub className="text-lg" /> Code
+                                        <FaGithub className="text-sm sm:text-lg" /> Code
                                     </a>
+                                    
+                                    {project.youtube && (
+                                        <a
+                                            href={project.youtube}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex-1 min-w-[100px] flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 hover:border-red-500/50 text-red-500 hover:text-red-400 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)] transition-all text-xs sm:text-sm font-medium"
+                                            aria-label={`Watch ${project.title} on YouTube`}
+                                        >
+                                            <FaYoutube className="text-sm sm:text-lg" /> Video
+                                        </a>
+                                    )}
+
                                     {project.liveDemo !== '#' && (
                                         <a
                                             href={project.liveDemo}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-violet-600 hover:from-cyan-400 hover:to-violet-500 text-white shadow-lg shadow-cyan-500/25 border border-transparent transition-all text-sm font-medium"
+                                            className="flex-1 min-w-[100px] flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-violet-600 hover:from-cyan-400 hover:to-violet-500 text-white shadow-lg shadow-cyan-500/25 border border-transparent transition-all text-xs sm:text-sm font-medium"
                                             aria-label={`View ${project.title} live demo`}
                                         >
-                                            <FaExternalLinkAlt /> Live Demo
+                                            <FaExternalLinkAlt className="text-sm" /> Live
                                         </a>
                                     )}
                                 </div>

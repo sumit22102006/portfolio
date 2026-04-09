@@ -81,6 +81,7 @@ export const projects = [
     techStack: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/sumit22102006",
     liveDemo: "https://adobe-ashen.vercel.app/ ",
+    youtube: "https://youtu.be/srMtrTuJAZM?si=T5X_V5WAhRyjQO4T",
     image: "adobe",
   },
 ];
