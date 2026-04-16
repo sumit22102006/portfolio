@@ -1,3 +1,4 @@
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './index.css';
 import ParticleBackground from './components/ParticleBackground';
 import Navbar from './components/Navbar';
@@ -22,14 +23,18 @@ function App() {
 
       <Navbar />
 
-      <main id="main-content" className="flex flex-col gap-12 md:gap-20 py-12 md:py-20">
-        <Home />
-        <About />
-        <Skills />
-        <Projects />
-        <Hackathon />
-        <Services />
-        <Contact />
+      <main id="main-content" className="flex flex-col py-12 md:py-20">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/hackathon" element={<Hackathon />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
 
       <Footer />

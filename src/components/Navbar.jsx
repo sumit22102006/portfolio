@@ -1,43 +1,28 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { NavLink, useLocation } from 'react-router-dom';
 import { navLinks } from '../data';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const [activeSection, setActiveSection] = useState('home');
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
-
-            // Update active section based on scroll position
-            const sections = navLinks.map(link => document.getElementById(link.id));
-            const scrollPosition = window.scrollY + 100;
-
-            sections.forEach(section => {
-                if (section) {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        setActiveSection(section.id);
-                    }
-                }
-            });
         };
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
+    // Scroll to top on route change
+    useEffect(() => {
+        window.scrollTo(0, 0);
         setIsOpen(false);
-    };
+    }, [location.pathname]);
 
     return (
         <nav
@@ -48,47 +33,55 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div className="flex justify-between items-center">
                     {/* Logo */}
-                    <motion.a
-                        href="#home"
-                        onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}
-                        className="flex items-center justify-center w-10 h-10 bg-cyan-500 text-[#030712] font-display font-bold text-xl rounded-full group shrink-0 hover:shadow-[0_0_15px_rgba(6,182,212,0.6)] transition-shadow"
+                    <motion.div
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        sk
-                    </motion.a>
+                        <NavLink
+                            to="/"
+                            className="flex items-center justify-center w-10 h-10 bg-cyan-500 text-[#030712] font-display font-bold text-xl rounded-full group shrink-0 hover:shadow-[0_0_15px_rgba(6,182,212,0.6)] transition-shadow"
+                        >
+                            sk
+                        </NavLink>
+                    </motion.div>
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
                         {navLinks.map(link => (
-                            <a
+                            <NavLink
                                 key={link.id}
-                                href={`#${link.id}`}
-                                onClick={(e) => { e.preventDefault(); scrollToSection(link.id); }}
-                                className={`text-sm font-medium tracking-wider uppercase transition-colors relative group py-2
-                                    ${activeSection === link.id ? 'text-cyan-400' : 'text-gray-300 hover:text-white'}
+                                to={`/${link.id}`}
+                                className={({ isActive }) => `
+                                    text-sm font-medium tracking-wider uppercase transition-colors relative group py-2
+                                    ${isActive ? 'text-cyan-400' : 'text-gray-300 hover:text-white'}
                                 `}
                             >
-                                {link.label}
-                                <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-cyan-500 transform origin-left transition-transform duration-300
-                                    ${activeSection === link.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}
-                                `}></span>
-                            </a>
+                                {({ isActive }) => (
+                                    <>
+                                        {link.label}
+                                        <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-cyan-500 transform origin-left transition-transform duration-300
+                                            ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}
+                                        `}></span>
+                                    </>
+                                )}
+                            </NavLink>
                         ))}
                     </div>
 
                     {/* Connect Button (Desktop) */}
                     <div className="hidden md:block shrink-0">
-                        <motion.a
-                            href="#contact"
-                            onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
-                            className="bg-transparent border border-cyan-500/50 text-cyan-400 px-6 py-2.5 rounded-full text-sm font-medium 
-                                       hover:bg-cyan-500/10 hover:border-cyan-400 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-all"
+                        <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            Connect
-                        </motion.a>
+                            <NavLink
+                                to="/contact"
+                                className="bg-transparent border border-cyan-500/50 text-cyan-400 px-6 py-2.5 rounded-full text-sm font-medium 
+                                           hover:bg-cyan-500/10 hover:border-cyan-400 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-all"
+                            >
+                                Connect
+                            </NavLink>
+                        </motion.div>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -116,25 +109,26 @@ const Navbar = () => {
                     >
                         <div className="px-4 pt-2 pb-6 space-y-1">
                             {navLinks.map(link => (
-                                <a
+                                <NavLink
                                     key={link.id}
-                                    href={`#${link.id}`}
-                                    onClick={(e) => { e.preventDefault(); scrollToSection(link.id); }}
-                                    className={`block px-3 py-4 text-base font-medium tracking-wide border-b border-white/5
-                                        ${activeSection === link.id ? 'text-cyan-400 bg-white/5' : 'text-gray-300 hover:text-white hover:bg-white/5'}
+                                    to={`/${link.id}`}
+                                    className={({ isActive }) => `
+                                        block px-3 py-4 text-base font-medium tracking-wide border-b border-white/5
+                                        ${isActive ? 'text-cyan-400 bg-white/5' : 'text-gray-300 hover:text-white hover:bg-white/5'}
                                     `}
+                                    onClick={() => setIsOpen(false)}
                                 >
                                     {link.label}
-                                </a>
+                                </NavLink>
                             ))}
                             <div className="pt-4">
-                                <a
-                                    href="#contact"
-                                    onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
+                                <NavLink
+                                    to="/contact"
+                                    onClick={() => setIsOpen(false)}
                                     className="block w-full text-center bg-cyan-500/10 border border-cyan-500/50 text-cyan-400 px-6 py-3 rounded-md font-medium"
                                 >
                                     Connect
-                                </a>
+                                </NavLink>
                             </div>
                         </div>
                     </motion.div>
