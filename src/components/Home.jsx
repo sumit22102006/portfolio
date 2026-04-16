@@ -23,18 +23,20 @@ const Home = () => {
                             {personalInfo.greeting}
                         </h2>
                         
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight">
-                            I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold text-white leading-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                            I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500 drop-shadow-[0_0_20px_rgba(34,211,238,0.3)]">
                                 {personalInfo.name}
                             </span>
                         </h1>
                         
-                        <div className="text-xl md:text-3xl text-gray-300 font-medium min-h-[40px]">
+                        <div className="text-xl md:text-3xl text-cyan-400 font-bold min-h-[40px] flex items-center gap-2">
+                            <span className="text-gray-300 font-medium">I am a </span>
                             <TypeAnimation
                                 sequence={personalInfo.roles.flatMap(role => [role, 2000])}
                                 wrapper="span"
                                 speed={50}
                                 repeat={Infinity}
+                                className="inline-block"
                             />
                         </div>
                         
