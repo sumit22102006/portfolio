@@ -1,133 +1,149 @@
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { FaGithub, FaLinkedinIn, FaTwitter, FaEnvelope, FaYoutube } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn, FaTwitter, FaYoutube, FaEnvelope, FaDownload, FaArrowDown } from 'react-icons/fa';
 import { personalInfo } from '../data';
-import profileImg from '../assets/profile-image.jpeg';
 
 const Home = () => {
-    const defaultImg = "https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&h=400&fit=crop";
-
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center pt-2">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-                    
-                    {/* Left Content */}
-                    <motion.div
-                        className="flex flex-col gap-6"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <h2 className="text-xl md:text-2xl text-cyan-400 font-medium tracking-wide">
-                            {personalInfo.greeting}
-                        </h2>
-                        
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-black text-white leading-tight drop-shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300">
-                            I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500 drop-shadow-[0_0_30px_rgba(34,211,238,0.4)]">
-                                {personalInfo.name}
-                            </span>
-                        </h1>
-                        
-                        <div className="text-xl md:text-3xl xl:text-4xl text-cyan-400 font-extrabold min-h-[40px] flex items-center gap-3">
-                            <span className="text-gray-300 font-semibold italic">I am a </span>
-                            <TypeAnimation
-                                sequence={personalInfo.roles.flatMap(role => [role, 2000])}
-                                wrapper="span"
-                                speed={50}
-                                repeat={Infinity}
-                                className="inline-block"
-                            />
-                        </div>
-                        
-                        <p className="text-gray-400 text-base md:text-lg max-w-xl leading-relaxed">
-                            {personalInfo.summary || personalInfo.tagline}
-                        </p>
+        <section id="home" className="min-h-screen relative flex flex-col items-center justify-center pt-20 overflow-hidden bg-[#0a0a0a]">
+            {/* Background Decorative Elements */}
+            <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+                {/* Ghosted Code Snippets */}
+                <pre className="absolute left-10 top-1/4 text-[10px] md:text-sm text-gray-500 font-mono hidden lg:block select-none">
+                    {`function buildAwesome() {
+  const stack = ["React", "Node"];
+  return stack.map(tech => 
+    createMagic(tech)
+  );
+}`}
+                </pre>
+                <pre className="absolute right-10 bottom-1/4 text-[10px] md:text-sm text-gray-500 font-mono hidden lg:block select-none">
+                    {`async function fetchFuture() {
+  try {
+    const ideas = await brainstorm();
+    return execute(ideas);
+  } catch(e) {
+    debug(e);
+  }
+}`}
+                </pre>
 
-                        
-
-
-
-
-
-                        
-                        <div className="flex flex-wrap gap-4 mt-4">
-                            {[
-                                { icon: FaGithub, href: personalInfo.socials.github, label: "GitHub" },
-                                { icon: FaLinkedinIn, href: personalInfo.socials.linkedin, label: "LinkedIn" },
-                                { icon: FaTwitter, href: personalInfo.socials.twitter, label: "Twitter" },
-                                { icon: FaYoutube, href: personalInfo.socials.youtube, label: "YouTube" },
-                                { icon: FaEnvelope, href: `mailto:${personalInfo.email}`, label: "Email" }
-                            ].map((social, index) => (
-                                <motion.a
-                                    key={index}
-                                    href={social.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]"
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    aria-label={social.label}
-                                >
-                                    <social.icon className="w-4 h-4 md:w-5 md:h-5" />
-                                </motion.a>
-                            ))}
-                        </div>
-
-                        {/* Resume Button */}
-                        <div className="mt-8 flex flex-wrap gap-4">
-                            <motion.a
-                                href="/sumit kumar resume.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-8 py-3 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 font-medium hover:bg-cyan-500 hover:text-white transition-all duration-300 flex items-center gap-2 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)]"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <span>Resume</span>
-                                <svg className="w-5 h-5 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                </svg>
-                            </motion.a>
-                        </div>
-                    </motion.div>
-
-                    {/* Right Content - Profile Image */}
-                    <motion.div
-                        className="relative flex justify-center lg:justify-end items-center mt-8 lg:mt-0"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                    >
-                        {/* Glowing backdrop blobs */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-cyan-500/20 rounded-full blur-[60px] md:blur-[80px]"></div>
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/4 -translate-y-1/4 w-[200px] md:w-[350px] h-[200px] md:h-[350px] bg-violet-600/20 rounded-full blur-[60px] md:blur-[80px]"></div>
-
-                        <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full border-2 border-cyan-500/30 p-2 z-10 group">
-                            <div className="w-full h-full rounded-full overflow-hidden border border-white/10 bg-[#030712]">
-                                <img
-                                    src={profileImg || defaultImg}
-                                    alt={personalInfo.name}
-                                    className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-                                    onError={(e) => { e.target.src = defaultImg }}
-                                />
-                            </div>
-                            
-                            {/* Orbital accents */}
-                            <motion.div 
-                                className="absolute -inset-4 rounded-full border border-cyan-500/20 border-t-cyan-400"
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                            />
-                            <motion.div 
-                                className="absolute -inset-8 rounded-full border border-violet-500/10 border-b-violet-500"
-                                animate={{ rotate: -360 }}
-                                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                            />
-                        </div>
-                    </motion.div>
+                {/* Decorative Icons */}
+                <div className="absolute left-[15%] top-1/2 -translate-y-1/2 text-gray-700/30 text-8xl md:text-[12rem] hidden md:block">
+                    {"</>"}
                 </div>
+                <div className="absolute right-[15%] top-1/3 text-gray-700/20 text-6xl md:text-8xl hidden md:block">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full"><path d="M12 2C6.48 2 2 4.69 2 8v8c0 3.31 4.48 6 10 6s10-2.69 10-6V8c0-3.31-4.48-6-10-6zm0 18c-4.41 0-8-1.79-8-4v-1.12c1.78 1.05 4.7 1.62 8 1.62s6.22-.57 8-1.62V16c0 2.21-3.59 4-8 4zm0-6c-4.41 0-8-1.79-8-4v-1.12c1.78 1.05 4.7 1.62 8 1.62s6.22-.57 8-1.62V10c0 2.21-3.59 4-8 4zm0-6c-4.41 0-8-1.79-8-4s3.59-4 8-4 8 1.79 8 4-3.59 4-8 4z"/></svg>
+                </div>
+                <div className="absolute right-[20%] bottom-1/3 text-gray-700/20 text-6xl md:text-8xl hidden md:block">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full"><path d="M21 16.5C21 16.88 20.79 17.21 20.47 17.38L12.57 21.82C12.41 21.94 12.21 22 12 22C11.79 22 11.59 21.94 11.43 21.82L3.53 17.38C3.21 17.21 3 16.88 3 16.5V7.5C3 7.12 3.21 6.79 3.53 6.62L11.43 2.18C11.59 2.06 11.79 2 12 2C12.21 2 12.41 2.06 12.57 2.18L20.47 6.62C20.79 6.79 21 7.12 21 7.5V16.5Z"/></svg>
+                </div>
+
+                {/* Subtle Radial Glows */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-cyan-500/5 rounded-full blur-[120px]"></div>
             </div>
+
+            <div className="z-10 flex flex-col items-center text-center px-4 max-w-5xl mx-auto">
+                {/* Main Heading (First Name) */}
+                <motion.h1 
+                    className="text-7xl md:text-[10rem] lg:text-[12rem] font-display font-black tracking-tighter text-white leading-none mb-2"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    SUMIT
+                </motion.h1>
+
+                {/* Sub Heading (Last Name - Outlined) */}
+                <motion.h2 
+                    className="text-4xl md:text-7xl lg:text-8xl font-display font-bold tracking-[0.2em] text-transparent drop-shadow-[0_2px_rgba(255,255,255,0.3)] mb-8"
+                    style={{ WebkitTextStroke: '2px rgba(255,230,0,0.5)' }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                    KUMAR
+                </motion.h2>
+
+                {/* Tagline/Roles with Brackets */}
+                <motion.div 
+                    className="flex items-center gap-4 text-xl md:text-2xl text-[#ffe600] font-mono mb-6"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                >
+                    <span className="opacity-70">{"<"}</span>
+                    <TypeAnimation
+                        sequence={personalInfo.roles.flatMap(role => [role, 2000])}
+                        wrapper="span"
+                        speed={50}
+                        repeat={Infinity}
+                        className="font-bold tracking-wider"
+                    />
+                    <span className="opacity-70">{"/>"}</span>
+                </motion.div>
+
+                {/* Summary Description */}
+                <motion.p 
+                    className="text-gray-400 text-base md:text-lg max-w-2xl leading-relaxed mb-10"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.7 }}
+                >
+                    Turning ideas into real-life products. I build accessible, pixel-perfect, and performant web experiences.
+                </motion.p>
+
+                {/* Action Buttons */}
+                <motion.div 
+                    className="flex flex-wrap justify-center gap-6 mb-12"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.9 }}
+                >
+                    <a 
+                        href="/resume.pdf" 
+                        target="_blank"
+                        className="flex items-center gap-2 bg-[#ffcc00] hover:bg-[#e6b800] text-black px-10 py-4 rounded-full font-bold transition-all transform hover:scale-105"
+                    >
+                        Resume <FaDownload className="text-sm" />
+                    </a>
+                    <a 
+                        href="/contact"
+                        className="flex items-center gap-2 border border-white/20 hover:border-[#ffcc00] hover:text-[#ffcc00] text-white px-10 py-4 rounded-full font-bold transition-all"
+                    >
+                        Contact Me
+                    </a>
+                </motion.div>
+
+                {/* Social Links */}
+                <motion.div 
+                    className="flex gap-6 text-gray-400 hover:text-white transition-colors"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.1 }}
+                >
+                    <a href={personalInfo.socials.github} target="_blank" className="hover:text-[#ffcc00] transition-colors"><FaGithub size={24} /></a>
+                    <a href={personalInfo.socials.linkedin} target="_blank" className="hover:text-[#ffcc00] transition-colors"><FaLinkedinIn size={24} /></a>
+                    <a href={personalInfo.socials.twitter} target="_blank" className="hover:text-[#ffcc00] transition-colors"><FaTwitter size={24} /></a>
+                    <a href={personalInfo.socials.youtube} target="_blank" className="hover:text-[#ffcc00] transition-colors"><FaYoutube size={24} /></a>
+                </motion.div>
+            </div>
+
+            {/* Scroll Indicator */}
+            <motion.div 
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.3 }}
+            >
+                <span className="text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+                <motion.div
+                    animate={{ y: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                    <FaArrowDown className="text-[#ffcc00]" />
+                </motion.div>
+            </motion.div>
         </section>
     );
 };

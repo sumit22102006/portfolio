@@ -18,7 +18,6 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Scroll to top on route change
     useEffect(() => {
         window.scrollTo(0, 0);
         setIsOpen(false);
@@ -26,114 +25,70 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 w-full z-50 transition-colors duration-300 h-20 flex items-center ${
-                scrolled ? 'bg-[#030712]/80 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
+            className={`fixed top-0 w-full z-50 transition-all duration-300 h-24 flex items-center ${
+                scrolled ? 'bg-[#0a0a0a]/90 backdrop-blur-md' : 'bg-transparent'
             }`}
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div className="flex justify-between items-center">
-                    {/* Logo */}
-                    <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center relative">
+                {/* Hexagon Logo */}
+                <NavLink to="/" className="relative group">
+                    <div className="w-12 h-14 bg-[#ffcc00] clip-hexagon flex items-center justify-center transition-transform group-hover:scale-110">
+                        <span className="text-[#0a0a0a] font-black text-xl tracking-tighter">SK</span>
+                    </div>
+                </NavLink>
+
+                {/* Centered Desktop Navigation */}
+                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1">
+                    {navLinks.map(link => (
                         <NavLink
-                            to="/"
-                            className="flex items-center justify-center w-10 h-10 bg-cyan-500 text-[#030712] font-display font-bold text-xl rounded-full group shrink-0 hover:shadow-[0_0_15px_rgba(6,182,212,0.6)] transition-shadow"
+                            key={link.id}
+                            to={`/${link.id}`}
+                            className={({ isActive }) => `
+                                px-6 py-2 text-sm font-bold uppercase tracking-widest transition-all rounded-full
+                                ${isActive ? 'bg-[#ffcc00] text-black' : 'text-gray-400 hover:text-white'}
+                            `}
                         >
-                            sk
+                            {link.label}
                         </NavLink>
-                    </motion.div>
-
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center gap-8">
-                        {navLinks.map(link => (
-                            <NavLink
-                                key={link.id}
-                                to={`/${link.id}`}
-                                className={({ isActive }) => `
-                                    text-sm font-medium tracking-wider uppercase transition-colors relative group py-2
-                                    ${isActive ? 'text-cyan-400' : 'text-gray-300 hover:text-white'}
-                                `}
-                            >
-                                {({ isActive }) => (
-                                    <>
-                                        {link.label}
-                                        <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-cyan-500 transform origin-left transition-transform duration-300
-                                            ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}
-                                        `}></span>
-                                    </>
-                                )}
-                            </NavLink>
-                        ))}
-                    </div>
-
-                    {/* Connect Button (Desktop) */}
-                    <div className="hidden md:block shrink-0">
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <NavLink
-                                to="/contact"
-                                className="bg-transparent border border-cyan-500/50 text-cyan-400 px-6 py-2.5 rounded-full text-sm font-medium 
-                                           hover:bg-cyan-500/10 hover:border-cyan-400 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-all"
-                            >
-                                Connect
-                            </NavLink>
-                        </motion.div>
-                    </div>
-
-                    {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center shrink-0">
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="text-gray-300 hover:text-white focus:outline-none w-10 h-10 flex items-center justify-center bg-white/5 rounded-lg border border-white/10 hover:border-cyan-500/50 transition-colors"
-                            aria-label="Toggle Menu"
-                        >
-                            {isOpen ? <HiX className="w-6 h-6" /> : <HiMenuAlt3 className="w-6 h-6" />}
-                        </button>
-                    </div>
+                    ))}
                 </div>
-            </div>
 
-            {/* Mobile Navigation */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="md:hidden bg-[#030712]/95 backdrop-blur-lg border-b border-white/10"
+                {/* Mobile Menu Button */}
+                <div className="md:hidden">
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="text-white p-2"
                     >
-                        <div className="px-4 pt-2 pb-6 space-y-1">
+                        {isOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
+                    </button>
+                </div>
+
+                {/* Mobile Navigation */}
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="absolute top-24 left-0 w-full bg-[#0a0a0a] border-b border-white/10 py-8 flex flex-col items-center gap-6 md:hidden"
+                        >
                             {navLinks.map(link => (
                                 <NavLink
                                     key={link.id}
                                     to={`/${link.id}`}
                                     className={({ isActive }) => `
-                                        block px-3 py-4 text-base font-medium tracking-wide border-b border-white/5
-                                        ${isActive ? 'text-cyan-400 bg-white/5' : 'text-gray-300 hover:text-white hover:bg-white/5'}
+                                        text-lg font-bold uppercase tracking-widest
+                                        ${isActive ? 'text-[#ffcc00]' : 'text-gray-400'}
                                     `}
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {link.label}
                                 </NavLink>
                             ))}
-                            <div className="pt-4">
-                                <NavLink
-                                    to="/contact"
-                                    onClick={() => setIsOpen(false)}
-                                    className="block w-full text-center bg-cyan-500/10 border border-cyan-500/50 text-cyan-400 px-6 py-3 rounded-md font-medium"
-                                >
-                                    Connect
-                                </NavLink>
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
         </nav>
     );
 };
