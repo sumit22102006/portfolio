@@ -40,7 +40,7 @@ const About = () => {
                             <div className="relative aspect-square md:aspect-video lg:aspect-square rounded-2xl overflow-hidden border border-white/10">
                                 <img 
                                     src={profileImg || defaultImg} 
-                                    alt="About Me" 
+                                    alt="Sumit Kumar - Full Stack Developer and Computer Engineering Student" 
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                     onError={(e) => { e.target.src = defaultImg }}
                                 />

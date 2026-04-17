@@ -46,7 +46,7 @@ const Projects = () => {
                             <div className="relative w-full h-48 overflow-hidden">
                                 <img
                                     src={projectImages[project.image]}
-                                    alt={project.title}
+                                    alt={`${project.title} - Project by Sumit Kumar`}
                                     loading="lazy"
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                 />
