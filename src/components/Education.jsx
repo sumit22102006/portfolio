@@ -16,9 +16,9 @@ const Education = () => {
                     transition={{ duration: 0.5 }}
                 >
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-center">
-                        My <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-500">Education</span>
+                        My <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffcc00] to-orange-500">Education</span>
                     </h2>
-                    <div className="h-1 w-20 bg-cyan-500 rounded-full mt-4 shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
+                    <div className="h-1 w-20 bg-[#ffcc00] rounded-full mt-4"></div>
                 </motion.div>
 
                 <div className="flex flex-col gap-16 max-w-5xl mx-auto">
@@ -42,18 +42,18 @@ const Education = () => {
                                     transition={{ delay: index * 0.2 }}
                                 >
                                     {/* Icon/Dot */}
-                                    <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-[#0a0a1a] shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 group-hover:border-cyan-500 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all z-10 box-content">
-                                        <div className={`w-3 h-3 rounded-full ${item.status === 'ongoing' ? 'bg-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.8)]' : 'bg-indigo-500'}`}></div>
+                                    <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-[#0a0a1a] shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 group-hover:border-[#ffcc00] group-hover:shadow-[0_0_15px_rgba(255,204,0,0.4)] transition-all z-10 box-content">
+                                        <div className={`w-3 h-3 rounded-full ${item.status === 'ongoing' ? 'bg-[#ffcc00] shadow-[0_0_10px_rgba(255,204,0,0.8)]' : 'bg-orange-500'}`}></div>
                                     </div>
 
                                     {/* Content Card */}
-                                    <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 bg-[#111]/50 backdrop-blur-xl rounded-2xl border border-white/5 group-hover:border-cyan-500/20 transition-all duration-300">
+                                    <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 bg-[#111]/50 backdrop-blur-xl rounded-2xl border border-white/5 group-hover:border-[#ffcc00]/20 transition-all duration-300">
                                         <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
-                                            <h4 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                                            <h4 className="text-xl font-bold text-white group-hover:text-[#ffcc00] transition-colors">
                                                 {item.degree}
                                             </h4>
                                             <span className={`inline-flex px-3 py-1 text-xs font-semibold rounded-full w-max
-                                                ${item.status === 'ongoing' ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20' : 'bg-green-500/10 text-green-400 border border-green-500/20'}
+                                                ${item.status === 'ongoing' ? 'bg-[#ffcc00]/10 text-[#ffcc00] border border-[#ffcc00]/20' : 'bg-green-500/10 text-green-400 border border-green-500/20'}
                                             `}>
                                                 {item.status === 'ongoing' ? 'Pursuing' : 'Completed'}
                                             </span>
@@ -63,11 +63,11 @@ const Education = () => {
                                         
                                         <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
                                             <span className="flex items-center gap-1">
-                                                <HiLocationMarker className="text-indigo-400" />
+                                                <HiLocationMarker className="text-orange-400" />
                                                 {item.location}
                                             </span>
                                             <span className="flex items-center gap-1">
-                                                <HiCalendar className="text-cyan-400" />
+                                                <HiCalendar className="text-[#ffcc00]" />
                                                 {item.period}
                                             </span>
                                         </div>

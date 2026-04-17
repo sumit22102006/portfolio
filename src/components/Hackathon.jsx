@@ -20,9 +20,9 @@ const Hackathon = () => {
                     transition={{ duration: 0.5 }}
                 >
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-center">
-                        My <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-500">Hackathons</span>
+                        My <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffcc00] to-orange-500">Hackathons</span>
                     </h2>
-                    <div className="h-1 w-20 bg-gradient-to-r from-cyan-400 to-indigo-500 rounded-full mt-4"></div>
+                    <div className="h-1 w-20 bg-gradient-to-r from-[#ffcc00] to-orange-500 rounded-full mt-4"></div>
                     <p className="text-gray-400 mt-6 text-center max-w-2xl text-lg">
                         Innovative solutions built during intensive coding events.
                     </p>
@@ -33,7 +33,7 @@ const Hackathon = () => {
                     {hackathons.map((hackathon, index) => (
                         <motion.article
                             key={hackathon.id}
-                            className="flex flex-col bg-[#111]/50 backdrop-blur-xl rounded-2xl border border-white/5 overflow-hidden hover:border-cyan-500/30 shadow-lg hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300 group"
+                            className="flex flex-col bg-[#111]/50 backdrop-blur-xl rounded-2xl border border-white/5 overflow-hidden hover:border-[#ffcc00]/30 shadow-lg hover:shadow-[0_0_20px_rgba(255,204,0,0.15)] transition-all duration-300 group"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -63,14 +63,14 @@ const Hackathon = () => {
                                     />
                                 )}
                                 <div className="absolute inset-0 z-20 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/40 to-transparent pointer-events-none"></div>
-                                <div className="absolute z-30 top-4 left-4 bg-cyan-500/80 backdrop-blur-sm text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
+                                <div className="absolute z-30 top-4 left-4 bg-[#ffcc00]/80 backdrop-blur-sm text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
                                     {hackathon.award ? hackathon.award : "Hackathon Project"}
                                 </div>
                             </div>
 
                             {/* Hackathon Content */}
                             <div className="p-6 md:p-8 flex flex-col flex-1">
-                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-[#ffcc00] transition-colors">
                                     {hackathon.title}
                                 </h3>
                                 
@@ -83,7 +83,7 @@ const Hackathon = () => {
                                     <ul className="mb-6 space-y-2 text-sm text-gray-400">
                                         {hackathon.features.map((feature, idx) => (
                                             <li key={idx} className="flex items-start gap-2">
-                                                <FaTools className="text-cyan-500 mt-1 shrink-0" />
+                                                <FaTools className="text-[#ffcc00] mt-1 shrink-0" />
                                                 <span>{feature}</span>
                                             </li>
                                         ))}
@@ -95,7 +95,7 @@ const Hackathon = () => {
                                     {hackathon.techStack.map((tech) => (
                                         <span 
                                             key={tech} 
-                                            className="px-3 py-1.5 text-xs font-semibold rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"
+                                            className="px-3 py-1.5 text-xs font-semibold rounded-full bg-[#ffcc00]/10 text-[#ffcc00] border border-[#ffcc00]/20"
                                         >
                                             {tech}
                                         </span>
@@ -109,7 +109,7 @@ const Hackathon = () => {
                                             href={hackathon.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex-1 w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/5 hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-500/50 text-white hover:text-cyan-400 hover:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all text-sm font-semibold"
+                                            className="flex-1 w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/5 hover:bg-[#ffcc00]/10 border border-white/10 hover:border-[#ffcc00]/50 text-white hover:text-[#ffcc00] hover:shadow-[0_0_15px_rgba(255,204,0,0.2)] transition-all text-sm font-semibold"
                                             aria-label={`View ${hackathon.title} on GitHub`}
                                         >
                                             <FaGithub className="text-lg" /> Source Code
@@ -120,7 +120,7 @@ const Hackathon = () => {
                                             href={hackathon.liveDemo}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex-1 w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-black font-bold shadow-lg shadow-cyan-500/25 border border-transparent transition-all text-sm font-semibold"
+                                            className="flex-1 w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-[#ffcc00] to-orange-600 hover:from-yellow-400 hover:to-orange-500 text-black font-bold shadow-lg shadow-[#ffcc00]/25 border border-transparent transition-all text-sm font-semibold"
                                             aria-label={`View ${hackathon.title} live demo`}
                                         >
                                             <FaExternalLinkAlt /> Live Demo
