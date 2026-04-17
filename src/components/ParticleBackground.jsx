@@ -49,13 +49,13 @@ const ParticleBackground = () => {
                 },
                 particles: {
                     color: {
-                        value: ['#00fbff', '#7c3aed'],
+                        value: ['#ffcc00', '#f97316'],
                     },
                     links: {
-                        color: '#00fbff',
-                        distance: 150,
+                        color: '#ffcc00',
+                        distance: 200,
                         enable: true,
-                        opacity: 0.2,
+                        opacity: 0.15,
                         width: 1,
                     },
                     collisions: {
@@ -65,27 +65,37 @@ const ParticleBackground = () => {
                         direction: 'none',
                         enable: true,
                         outModes: {
-                            default: 'bounce',
+                            default: 'out',
                         },
-                        random: false,
-                        speed: 1,
+                        random: true,
+                        speed: 0.8,
                         straight: false,
                     },
                     number: {
                         density: {
                             enable: true,
-                            area: 800,
+                            area: 1200,
                         },
-                        value: 60,
+                        value: 80,
                     },
                     opacity: {
-                        value: 0.5,
+                        value: { min: 0.1, max: 0.5 },
+                        animation: {
+                            enable: true,
+                            speed: 1,
+                            minimumValue: 0.1,
+                        }
                     },
                     shape: {
                         type: 'circle',
                     },
                     size: {
-                        value: { min: 1, max: 3 },
+                        value: { min: 1, max: 2 },
+                        animation: {
+                            enable: true,
+                            speed: 2,
+                            minimumValue: 1,
+                        }
                     },
                 },
                 detectRetina: true,

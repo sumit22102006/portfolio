@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import './index.css';
 import ParticleBackground from './components/ParticleBackground';
+import AnimatedBackground from './components/AnimatedBackground';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -21,6 +22,7 @@ function App() {
       </a>
 
       <ParticleBackground />
+      <AnimatedBackground />
 
       <Navbar />
 
