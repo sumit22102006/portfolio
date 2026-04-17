@@ -32,7 +32,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center relative">
                 {/* Hexagon Logo */}
                 <NavLink to="/" className="relative group">
-                    <div className="w-12 h-14 bg-[#ffcc00] clip-hexagon flex items-center justify-center transition-transform group-hover:scale-110">
+                    <div className="w-12 h-14 bg-cyan-500 clip-hexagon flex items-center justify-center transition-transform group-hover:scale-110 shadow-[0_0_15px_rgba(6,182,212,0.4)]">
                         <span className="text-[#0a0a0a] font-black text-xl tracking-tighter">SK</span>
                     </div>
                 </NavLink>
@@ -45,7 +45,7 @@ const Navbar = () => {
                             to={`/${link.id}`}
                             className={({ isActive }) => `
                                 px-6 py-2 text-sm font-bold uppercase tracking-widest transition-all rounded-full
-                                ${isActive ? 'bg-[#ffcc00] text-black' : 'text-gray-400 hover:text-white'}
+                                ${isActive ? 'bg-cyan-500 text-black shadow-lg shadow-cyan-500/20' : 'text-gray-400 hover:text-white'}
                             `}
                         >
                             {link.label}
@@ -78,7 +78,7 @@ const Navbar = () => {
                                     to={`/${link.id}`}
                                     className={({ isActive }) => `
                                         text-lg font-bold uppercase tracking-widest
-                                        ${isActive ? 'text-[#ffcc00]' : 'text-gray-400'}
+                                        ${isActive ? 'text-cyan-400' : 'text-gray-400'}
                                     `}
                                     onClick={() => setIsOpen(false)}
                                 >

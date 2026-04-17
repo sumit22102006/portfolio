@@ -40,7 +40,7 @@ const Home = () => {
                 </div>
 
                 {/* Subtle Radial Glows */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-[#ffcc00]/5 rounded-full blur-[120px]"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-cyan-500/5 rounded-full blur-[120px]"></div>
             </div>
 
             <div className="z-10 flex flex-col items-center text-center px-4 max-w-5xl mx-auto">
@@ -57,7 +57,7 @@ const Home = () => {
                 {/* Sub Heading (Last Name - Outlined) */}
                 <motion.h2 
                     className="text-4xl md:text-7xl lg:text-8xl font-display font-bold tracking-[0.2em] text-transparent drop-shadow-[0_2px_rgba(255,255,255,0.3)] mb-8"
-                    style={{ WebkitTextStroke: '2px rgba(255,230,0,0.5)' }}
+                    style={{ WebkitTextStroke: '1.5px rgba(6, 182, 212, 0.6)' }}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
@@ -67,7 +67,7 @@ const Home = () => {
 
                 {/* Tagline/Roles with Brackets */}
                 <motion.div 
-                    className="flex items-center gap-4 text-xl md:text-2xl text-[#ffe600] font-mono mb-6"
+                    className="flex items-center gap-4 text-xl md:text-2xl text-cyan-400 font-mono mb-6"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
@@ -103,13 +103,13 @@ const Home = () => {
                     <a 
                         href="/resume.pdf" 
                         target="_blank"
-                        className="flex items-center gap-2 bg-[#ffcc00] hover:bg-[#e6b800] text-black px-10 py-4 rounded-full font-bold transition-all transform hover:scale-105"
+                        className="flex items-center gap-2 bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-black px-10 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/20"
                     >
                         Resume <FaDownload className="text-sm" />
                     </a>
                     <a 
                         href="/contact"
-                        className="flex items-center gap-2 border border-white/20 hover:border-[#ffcc00] hover:text-[#ffcc00] text-white px-10 py-4 rounded-full font-bold transition-all"
+                        className="flex items-center gap-2 border border-white/20 hover:border-cyan-400 hover:text-cyan-400 text-white px-10 py-4 rounded-full font-bold transition-all"
                     >
                         Contact Me
                     </a>
@@ -122,10 +122,10 @@ const Home = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.1 }}
                 >
-                    <a href={personalInfo.socials.github} target="_blank" className="hover:text-[#ffcc00] transition-colors"><FaGithub size={24} /></a>
-                    <a href={personalInfo.socials.linkedin} target="_blank" className="hover:text-[#ffcc00] transition-colors"><FaLinkedinIn size={24} /></a>
-                    <a href={personalInfo.socials.twitter} target="_blank" className="hover:text-[#ffcc00] transition-colors"><FaTwitter size={24} /></a>
-                    <a href={personalInfo.socials.youtube} target="_blank" className="hover:text-[#ffcc00] transition-colors"><FaYoutube size={24} /></a>
+                    <a href={personalInfo.socials.github} target="_blank" className="hover:text-cyan-400 transition-colors"><FaGithub size={24} /></a>
+                    <a href={personalInfo.socials.linkedin} target="_blank" className="hover:text-cyan-400 transition-colors"><FaLinkedinIn size={24} /></a>
+                    <a href={personalInfo.socials.twitter} target="_blank" className="hover:text-cyan-400 transition-colors"><FaTwitter size={24} /></a>
+                    <a href={personalInfo.socials.youtube} target="_blank" className="hover:text-cyan-400 transition-colors"><FaYoutube size={24} /></a>
                 </motion.div>
             </div>
 
@@ -141,7 +141,7 @@ const Home = () => {
                     animate={{ y: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                 >
-                    <FaArrowDown className="text-[#ffcc00]" />
+                    <FaArrowDown className="text-cyan-400" />
                 </motion.div>
             </motion.div>
         </section>

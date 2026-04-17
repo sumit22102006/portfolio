@@ -6,13 +6,13 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <p className="text-gray-500 text-sm">
                     © {new Date().getFullYear()} <span className="text-white font-medium">{personalInfo.name}</span>. 
-                    Built with <span className="text-[#ffcc00]">React</span> & <span className="text-orange-400">Tailwind CSS</span>
+                    Built with <span className="text-cyan-400">React</span> & <span className="text-cyan-400">Tailwind CSS</span>
                 </p>
                 <div className="mt-4 flex justify-center flex-wrap gap-6">
-                    <a href={personalInfo.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#ffcc00] transition-colors text-xs uppercase tracking-widest font-bold">GitHub</a>
-                    <a href={personalInfo.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#ffcc00] transition-colors text-xs uppercase tracking-widest font-bold">LinkedIn</a>
-                    <a href={personalInfo.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#ffcc00] transition-colors text-xs uppercase tracking-widest font-bold">Twitter</a>
-                    <a href={personalInfo.socials.youtube} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#ffcc00] transition-colors text-xs uppercase tracking-widest font-bold">YouTube</a>
+                    <a href={personalInfo.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-400 transition-colors text-xs uppercase tracking-widest font-bold">GitHub</a>
+                    <a href={personalInfo.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-400 transition-colors text-xs uppercase tracking-widest font-bold">LinkedIn</a>
+                    <a href={personalInfo.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-400 transition-colors text-xs uppercase tracking-widest font-bold">Twitter</a>
+                    <a href={personalInfo.socials.youtube} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-400 transition-colors text-xs uppercase tracking-widest font-bold">YouTube</a>
                 </div>
             </div>
         </footer>
