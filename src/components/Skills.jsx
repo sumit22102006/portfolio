@@ -29,35 +29,65 @@ const Skills = () => {
         return (
             <motion.div
                 key={skill.name}
-                className="group flex flex-col items-center justify-center p-6 bg-[#111]/50 backdrop-blur-xl rounded-2xl border border-white/5 hover:border-[#ffcc00]/30 shadow-lg shadow-black/20 hover:shadow-[0_0_20px_rgba(255,204,0,0.15)] transition-all duration-300 relative overflow-hidden"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                className="group flex flex-col items-center justify-center p-6 bg-[#111]/50 backdrop-blur-xl rounded-2xl border border-white/5 hover:border-[#ffcc00]/30 shadow-lg shadow-black/20 transition-all duration-300 relative overflow-hidden"
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ 
+                    y: -10,
+                    boxShadow: "0 20px 25px -5px rgba(255, 204, 0, 0.1), 0 10px 10px -5px rgba(255, 204, 0, 0.04)"
+                }}
             >
-                {/* Glow Background on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#ffcc00]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                
-                <div className="relative z-10 flex flex-col items-center">
-                    <div className="w-16 h-16 rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center mb-4 group-hover:border-[#ffcc00]/50 group-hover:shadow-[0_0_15px_rgba(255,204,0,0.3)] transition-all duration-300">
-                        <IconComponent className="w-8 h-8 text-gray-400 group-hover:text-[#ffcc00] transition-colors" />
+                {/* Float Animation Wrapper */}
+                <motion.div
+                    animate={{ 
+                        y: [0, -5, 0],
+                    }}
+                    transition={{ 
+                        duration: 4, 
+                        repeat: Infinity, 
+                        ease: "easeInOut",
+                        delay: index * 0.2
+                    }}
+                    className="w-full flex flex-col items-center"
+                >
+                    {/* Icon with Inner Spinner */}
+                    <div className="relative w-16 h-16 mb-4">
+                        <motion.div 
+                            className="absolute -inset-2 rounded-2xl border border-[#ffcc00]/20 hidden group-hover:block"
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                        />
+                        <div className="w-full h-full rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center group-hover:border-[#ffcc00]/50 transition-all duration-300">
+                            <IconComponent className="w-8 h-8 text-gray-400 group-hover:text-[#ffcc00] group-hover:scale-110 transition-all duration-300" />
+                        </div>
                     </div>
-                    <h4 className="text-white font-medium mb-3">{skill.name}</h4>
+
+                    <div className="flex justify-between items-center w-full mb-3 px-1">
+                        <h4 className="text-white font-medium">{skill.name}</h4>
+                        <span className="text-[10px] font-mono text-[#ffcc00] opacity-0 group-hover:opacity-100 transition-opacity">
+                            {skill.level}%
+                        </span>
+                    </div>
                     
                     {/* Progress Bar Container */}
                     <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
                         <motion.div
-                            className="h-full bg-gradient-to-r from-[#ffcc00] to-orange-500 relative"
+                            className="h-full bg-gradient-to-r from-[#ffcc00] to-orange-500 rounded-full relative"
                             initial={{ width: 0 }}
                             whileInView={{ width: `${skill.level}%` }}
                             viewport={{ once: true }}
-                            transition={{ duration: 1, delay: index * 0.1 }}
+                            transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 + (index * 0.1) }}
                         >
-                            <div className="absolute right-0 top-0 bottom-0 w-2 bg-white/50 blur-[2px]"></div>
+                            <motion.div 
+                                className="absolute right-0 top-0 bottom-0 w-2 bg-white/40 blur-[2px]"
+                                animate={{ opacity: [0.5, 1, 0.5] }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                            />
                         </motion.div>
                     </div>
-                </div>
+                </motion.div>
             </motion.div>
         );
     };
