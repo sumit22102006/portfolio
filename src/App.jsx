@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-white font-sans selection:bg-cyan-500 selection:text-white">
+    <div className="min-h-screen bg-background text-white font-sans selection:bg-[#ffcc00] selection:text-black">
       {/* Skip Link for Accessibility */}
       <a href="#main-content" className="skip-link">
        

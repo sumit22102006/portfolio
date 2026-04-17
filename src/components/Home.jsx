@@ -40,7 +40,7 @@ const Home = () => {
                 </div>
 
                 {/* Subtle Radial Glows */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-cyan-500/5 rounded-full blur-[120px]"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-[#ffcc00]/5 rounded-full blur-[120px]"></div>
             </div>
 
             <div className="z-10 flex flex-col items-center text-center px-4 max-w-5xl mx-auto">

@@ -29,7 +29,7 @@ const Skills = () => {
         return (
             <motion.div
                 key={skill.name}
-                className="group flex flex-col items-center justify-center p-6 bg-[#0a0a1a]/50 backdrop-blur-xl rounded-2xl border border-white/5 hover:border-cyan-500/30 shadow-lg shadow-black/20 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300 relative overflow-hidden"
+                className="group flex flex-col items-center justify-center p-6 bg-[#111]/50 backdrop-blur-xl rounded-2xl border border-white/5 hover:border-[#ffcc00]/30 shadow-lg shadow-black/20 hover:shadow-[0_0_20px_rgba(255,204,0,0.15)] transition-all duration-300 relative overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -37,18 +37,18 @@ const Skills = () => {
                 whileHover={{ y: -5 }}
             >
                 {/* Glow Background on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-[#ffcc00]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 
                 <div className="relative z-10 flex flex-col items-center">
-                    <div className="w-16 h-16 rounded-2xl bg-[#030712] border border-white/10 flex items-center justify-center mb-4 group-hover:border-cyan-400/50 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-300">
-                        <IconComponent className="w-8 h-8 text-gray-400 group-hover:text-cyan-400 transition-colors" />
+                    <div className="w-16 h-16 rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center mb-4 group-hover:border-[#ffcc00]/50 group-hover:shadow-[0_0_15px_rgba(255,204,0,0.3)] transition-all duration-300">
+                        <IconComponent className="w-8 h-8 text-gray-400 group-hover:text-[#ffcc00] transition-colors" />
                     </div>
                     <h4 className="text-white font-medium mb-3">{skill.name}</h4>
                     
                     {/* Progress Bar Container */}
                     <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
                         <motion.div
-                            className="h-full bg-gradient-to-r from-cyan-400 to-violet-500 relative"
+                            className="h-full bg-gradient-to-r from-[#ffcc00] to-orange-500 relative"
                             initial={{ width: 0 }}
                             whileInView={{ width: `${skill.level}%` }}
                             viewport={{ once: true }}
@@ -75,9 +75,9 @@ const Skills = () => {
                     transition={{ duration: 0.5 }}
                 >
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-center">
-                        My <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">Skills</span>
+                        My <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffcc00] to-orange-500">Skills</span>
                     </h2>
-                    <div className="h-1 w-20 bg-gradient-to-r from-cyan-400 to-violet-500 rounded-full mt-4"></div>
+                    <div className="h-1 w-20 bg-gradient-to-r from-[#ffcc00] to-orange-500 rounded-full mt-4"></div>
                 </motion.div>
 
                 <div className="space-y-16">
@@ -89,8 +89,8 @@ const Skills = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                         >
-                            <span className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center border border-cyan-500/20">
-                                <HiCode className="text-cyan-400 w-6 h-6" />
+                            <span className="w-10 h-10 rounded-xl bg-[#ffcc00]/10 flex items-center justify-center border border-[#ffcc00]/20">
+                                <HiCode className="text-[#ffcc00] w-6 h-6" />
                             </span>
                             Technical Skills
                         </motion.h3>
@@ -107,8 +107,8 @@ const Skills = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                         >
-                            <span className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center border border-violet-500/20">
-                                <HiColorSwatch className="text-violet-400 w-6 h-6" />
+                            <span className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center border border-orange-500/20">
+                                <HiColorSwatch className="text-orange-400 w-6 h-6" />
                             </span>
                             Tools & Design
                         </motion.h3>

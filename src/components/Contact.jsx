@@ -44,9 +44,9 @@ const Contact = () => {
                     transition={{ duration: 0.5 }}
                 >
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-center">
-                        Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">Touch</span>
+                        Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffcc00] to-orange-500">Touch</span>
                     </h2>
-                    <div className="h-1 w-20 bg-gradient-to-r from-cyan-400 to-violet-500 rounded-full mt-4"></div>
+                    <div className="h-1 w-20 bg-gradient-to-r from-[#ffcc00] to-orange-500 rounded-full mt-4"></div>
                     <p className="text-gray-400 mt-6 text-center max-w-2xl text-lg">
                         Have a project in mind? Let's work together
                     </p>
@@ -62,23 +62,23 @@ const Contact = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        <div className="bg-[#0a0a1a]/50 backdrop-blur-xl border border-white/5 rounded-3xl p-8 shadow-xl">
+                        <div className="bg-[#111]/50 backdrop-blur-xl border border-white/5 rounded-3xl p-8 shadow-xl">
                             <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
                             
                             <div className="space-y-6">
                                 {[
-                                    { icon: HiMail, label: 'Email', value: personalInfo.email, href: `mailto:${personalInfo.email}`, color: 'text-cyan-400' },
-                                    { icon: HiPhone, label: 'Phone', value: personalInfo.phone, href: `tel:${personalInfo.phone}`, color: 'text-violet-400' },
-                                    { icon: HiLocationMarker, label: 'Location', value: personalInfo.location, color: 'text-cyan-400' },
+                                    { icon: HiMail, label: 'Email', value: personalInfo.email, href: `mailto:${personalInfo.email}`, color: 'text-[#ffcc00]' },
+                                    { icon: HiPhone, label: 'Phone', value: personalInfo.phone, href: `tel:${personalInfo.phone}`, color: 'text-orange-400' },
+                                    { icon: HiLocationMarker, label: 'Location', value: personalInfo.location, color: 'text-[#ffcc00]' },
                                 ].map((item, idx) => (
                                     <div key={idx} className="flex items-center gap-4 group">
-                                        <div className={`w-12 h-12 rounded-2xl bg-[#030712] border border-white/5 flex items-center justify-center ${item.color} group-hover:border-cyan-500/50 transition-all`}>
+                                        <div className={`w-12 h-12 rounded-2xl bg-[#0a0a0a] border border-white/5 flex items-center justify-center ${item.color} group-hover:border-[#ffcc00]/50 transition-all`}>
                                             <item.icon className="w-6 h-6" />
                                         </div>
                                         <div>
                                             <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">{item.label}</p>
                                             {item.href ? (
-                                                <a href={item.href} className="text-white hover:text-cyan-400 transition-colors">{item.value}</a>
+                                                <a href={item.href} className="text-white hover:text-[#ffcc00] transition-colors">{item.value}</a>
                                             ) : (
                                                 <p className="text-white">{item.value}</p>
                                             )}
@@ -102,7 +102,7 @@ const Contact = () => {
                                         href={social.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-12 h-12 rounded-xl bg-[#030712] border border-white/5 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-500/50 hover:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all"
+                                        className="w-12 h-12 rounded-xl bg-[#0a0a0a] border border-white/5 flex items-center justify-center text-gray-400 hover:text-[#ffcc00] hover:border-[#ffcc00]/50 hover:shadow-[0_0_15px_rgba(255,204,0,0.2)] transition-all"
                                         aria-label={social.label}
                                     >
                                         <social.icon className="w-5 h-5" />
@@ -114,14 +114,14 @@ const Contact = () => {
 
                     {/* Contact Form */}
                     <motion.div
-                        className="bg-[#0a0a1a]/50 backdrop-blur-xl border border-white/5 rounded-3xl p-8 shadow-xl relative overflow-hidden group"
+                        className="bg-[#111]/50 backdrop-blur-xl border border-white/5 rounded-3xl p-8 shadow-xl relative overflow-hidden group"
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
                         {/* Interactive glow effect */}
-                        <div className="absolute -top-24 -right-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition-colors"></div>
+                        <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#ffcc00]/10 rounded-full blur-3xl group-hover:bg-[#ffcc00]/20 transition-colors"></div>
                         
                         <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                             <div className="space-y-2">
@@ -133,7 +133,7 @@ const Contact = () => {
                                     value={formData.name}
                                     onChange={handleChange}
                                     placeholder="John Doe"
-                                    className="w-full bg-[#030712] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all"
+                                    className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#ffcc00]/50 focus:ring-1 focus:ring-[#ffcc00]/50 transition-all"
                                 />
                             </div>
                             
@@ -146,7 +146,7 @@ const Contact = () => {
                                     value={formData.email}
                                     onChange={handleChange}
                                     placeholder="john@example.com"
-                                    className="w-full bg-[#030712] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all"
+                                    className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#ffcc00]/50 focus:ring-1 focus:ring-[#ffcc00]/50 transition-all"
                                 />
                             </div>
 
@@ -159,14 +159,14 @@ const Contact = () => {
                                     value={formData.message}
                                     onChange={handleChange}
                                     placeholder="Tell me about your project..."
-                                    className="w-full bg-[#030712] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all resize-none"
+                                    className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#ffcc00]/50 focus:ring-1 focus:ring-[#ffcc00]/50 transition-all resize-none"
                                 />
                             </div>
 
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full bg-gradient-to-r from-cyan-500 to-violet-600 hover:from-cyan-400 hover:to-violet-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-cyan-500/20 transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
+                                className="w-full bg-gradient-to-r from-[#ffcc00] to-orange-600 hover:from-yellow-400 hover:to-orange-500 text-black font-bold py-4 rounded-xl shadow-lg shadow-[#ffcc00]/20 transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
                             >
                                 {isSubmitting ? 'Sending...' : (
                                     <>

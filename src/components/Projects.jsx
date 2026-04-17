@@ -22,9 +22,9 @@ const Projects = () => {
                     transition={{ duration: 0.5 }}
                 >
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-center">
-                        My <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">Projects</span>
+                        My <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffcc00] to-orange-500">Projects</span>
                     </h2>
-                    <div className="h-1 w-20 bg-gradient-to-r from-cyan-400 to-violet-500 rounded-full mt-4"></div>
+                    <div className="h-1 w-20 bg-gradient-to-r from-[#ffcc00] to-orange-500 rounded-full mt-4"></div>
                     <p className="text-gray-400 mt-6 text-center max-w-2xl text-lg">
                         Some of the projects I've worked on
                     </p>
@@ -35,7 +35,7 @@ const Projects = () => {
                     {projects.map((project, index) => (
                         <motion.article
                             key={project.id}
-                            className="flex flex-col bg-[#0a0a1a]/50 backdrop-blur-xl rounded-2xl border border-white/5 overflow-hidden hover:border-cyan-500/30 shadow-lg hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300 group"
+                            className="flex flex-col bg-[#111]/50 backdrop-blur-xl rounded-2xl border border-white/5 overflow-hidden hover:border-[#ffcc00]/30 shadow-lg hover:shadow-[0_0_20px_rgba(255,204,0,0.15)] transition-all duration-300 group"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -55,7 +55,7 @@ const Projects = () => {
 
                             {/* Project Content */}
                             <div className="p-6 flex flex-col flex-1">
-                                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#ffcc00] transition-colors">
                                     {project.title}
                                 </h3>
                                 
@@ -68,7 +68,7 @@ const Projects = () => {
                                     {project.techStack.map((tech) => (
                                         <span 
                                             key={tech} 
-                                            className="px-3 py-1 text-xs font-medium rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"
+                                            className="px-3 py-1 text-xs font-medium rounded-full bg-[#ffcc00]/10 text-[#ffcc00] border border-[#ffcc00]/20"
                                         >
                                             {tech}
                                         </span>
@@ -81,7 +81,7 @@ const Projects = () => {
                                         href={project.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex-1 min-w-[100px] flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-500/50 text-white hover:text-cyan-400 hover:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all text-xs sm:text-sm font-medium"
+                                        className="flex-1 min-w-[100px] flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-[#ffcc00]/10 border border-white/10 hover:border-[#ffcc00]/50 text-white hover:text-[#ffcc00] hover:shadow-[0_0_15px_rgba(255,204,0,0.2)] transition-all text-xs sm:text-sm font-medium"
                                         aria-label={`View ${project.title} on GitHub`}
                                     >
                                         <FaGithub className="text-sm sm:text-lg" /> Code
@@ -104,7 +104,7 @@ const Projects = () => {
                                             href={project.liveDemo}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex-1 min-w-[100px] flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-violet-600 hover:from-cyan-400 hover:to-violet-500 text-white shadow-lg shadow-cyan-500/25 border border-transparent transition-all text-xs sm:text-sm font-medium"
+                                            className="flex-1 min-w-[100px] flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-gradient-to-r from-[#ffcc00] to-orange-600 hover:from-yellow-400 hover:to-orange-500 text-black font-bold shadow-lg shadow-[#ffcc00]/25 border border-transparent transition-all text-xs sm:text-sm font-medium"
                                             aria-label={`View ${project.title} live demo`}
                                         >
                                             <FaExternalLinkAlt className="text-sm" /> Live
