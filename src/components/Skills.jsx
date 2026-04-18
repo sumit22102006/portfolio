@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import {
-    FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaGithub, FaFigma
+    FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaGithub, FaFigma, FaRocket
 } from 'react-icons/fa';
 import {
     SiMongodb, SiCplusplus
@@ -195,7 +195,5 @@ const Skills = () => {
         </section>
     );
 };
-
-export default Skills;
 
 export default Skills;
