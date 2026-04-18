@@ -128,38 +128,42 @@ const Projects = () => {
                                     </div>
 
                                     {/* Links */}
-                                    <div className="grid grid-cols-2 gap-3 mt-auto">
-                                        <a
-                                            href={project.github}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all text-sm font-bold active:scale-95"
-                                        >
-                                            <FaGithub size={18} /> Code
-                                        </a>
-                                        
-                                        {project.liveDemo !== '#' ? (
+                                    <div className="flex flex-col gap-3 mt-auto">
+                                        <div className="grid grid-cols-2 gap-3">
                                             <a
-                                                href={project.liveDemo}
+                                                href={project.github}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-[#ffcc00] to-orange-500 text-black shadow-xl shadow-[#ffcc00]/10 transition-all text-sm font-bold hover:brightness-110 active:scale-95"
+                                                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all text-sm font-bold active:scale-95"
                                             >
-                                                <FaExternalLinkAlt size={14} /> Live Demo
+                                                <FaGithub size={18} /> Code
                                             </a>
-                                        ) : project.youtube ? (
+                                            
+                                            {project.liveDemo !== '#' ? (
+                                                <a
+                                                    href={project.liveDemo}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-[#ffcc00] to-orange-500 text-black shadow-xl shadow-[#ffcc00]/10 transition-all text-sm font-bold hover:brightness-110 active:scale-95"
+                                                >
+                                                    <FaExternalLinkAlt size={14} /> Live Demo
+                                                </a>
+                                            ) : (
+                                                <button disabled className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 text-gray-500 cursor-not-allowed text-sm font-bold opacity-50">
+                                                    Private
+                                                </button>
+                                            )}
+                                        </div>
+                                        
+                                        {project.youtube && (
                                             <a
                                                 href={project.youtube}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-red-600 text-white shadow-xl shadow-red-600/10 transition-all text-sm font-bold hover:bg-red-500 active:scale-95"
+                                                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-red-600/10 hover:bg-red-600/20 border border-red-600/20 text-red-500 shadow-xl shadow-red-600/5 transition-all text-sm font-bold active:scale-95"
                                             >
-                                                <FaYoutube size={18} /> Video
+                                                <FaYoutube size={18} /> Watch Video Demo
                                             </a>
-                                        ) : (
-                                            <button disabled className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 text-gray-500 cursor-not-allowed text-sm font-bold opacity-50">
-                                                Private
-                                            </button>
                                         )}
                                     </div>
                                 </div>

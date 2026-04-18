@@ -74,7 +74,7 @@ export const projects = [
     techStack: ["React", "Vite", "Tailwind CSS"],
     github: "https://github.com/sumit22102006",
     liveDemo: "https://irctc-one.vercel.app/",
-    youtube: "https://youtu.be/z-h_7Y1rNqY?si=z8yXpTUKZshjK8rY",
+    youtube: "https://youtu.be/oDPpIxoFyNY?si=_vWrgxlLSa7kqJc1",
     image: "irctc",
   },
   {
@@ -154,7 +154,7 @@ export const hackathons = [
     techStack: ["React", "Vite", "Tailwind CSS"],
     github: "https://github.com/sumit22102006",
     liveDemo: "https://irctc-one.vercel.app/",
-    youtube: "https://youtu.be/z-h_7Y1rNqY?si=z8yXpTUKZshjK8rY",
+    youtube: "https://youtu.be/oDPpIxoFyNY?si=_vWrgxlLSa7kqJc1",
     image: "irctc",
     award: "Hackathon Project",
     features: [
