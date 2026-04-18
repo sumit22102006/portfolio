@@ -23,133 +23,179 @@ const iconMap = {
 };
 
 const Skills = () => {
+    const allSkills = [...technicalSkills, ...designSkills];
+    
+    // Duplicate skills for seamless horizontal scroll
+    const firstRow = [...technicalSkills, ...technicalSkills];
+    const secondRow = [...designSkills, ...designSkills, ...designSkills, ...designSkills]; // More dupes for shorter list
+
     const renderSkillCard = (skill, index) => {
         const IconComponent = iconMap[skill.icon] || HiCode;
 
         return (
             <motion.div
-                key={skill.name}
-                className="group flex flex-col items-center justify-center p-6 bg-[#111]/50 backdrop-blur-xl rounded-2xl border border-white/5 hover:border-[#ffcc00]/30 shadow-lg shadow-black/20 transition-all duration-300 relative overflow-hidden"
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                key={`${skill.name}-${index}`}
+                className="group flex flex-col items-center justify-center p-6 bg-[#111]/50 backdrop-blur-xl rounded-2xl border border-white/5 hover:border-[#ffcc00]/30 shadow-lg shadow-black/20 transition-all duration-300 relative overflow-hidden min-w-[160px] md:min-w-[200px]"
                 whileHover={{ 
                     y: -10,
-                    boxShadow: "0 20px 25px -5px rgba(255, 204, 0, 0.1), 0 10px 10px -5px rgba(255, 204, 0, 0.04)"
+                    scale: 1.02,
+                    boxShadow: "0 20px 25px -5px rgba(255, 204, 0, 0.1)"
                 }}
             >
-                {/* Float Animation Wrapper */}
-                <motion.div
-                    animate={{ 
-                        y: [0, -5, 0],
-                    }}
-                    transition={{ 
-                        duration: 4, 
-                        repeat: Infinity, 
-                        ease: "easeInOut",
-                        delay: index * 0.2
-                    }}
-                    className="w-full flex flex-col items-center"
-                >
-                    {/* Icon with Inner Spinner */}
-                    <div className="relative w-16 h-16 mb-4">
-                        <motion.div 
-                            className="absolute -inset-2 rounded-2xl border border-[#ffcc00]/20 hidden group-hover:block"
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                        />
-                        <div className="w-full h-full rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center group-hover:border-[#ffcc00]/50 transition-all duration-300">
-                            <IconComponent className="w-8 h-8 text-gray-400 group-hover:text-[#ffcc00] group-hover:scale-110 transition-all duration-300" />
-                        </div>
+                <div className="relative w-16 h-16 mb-4">
+                    <motion.div 
+                        className="absolute -inset-2 rounded-2xl border border-[#ffcc00]/20 hidden group-hover:block"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                    />
+                    <div className="w-full h-full rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center group-hover:border-[#ffcc00]/50 transition-all duration-300">
+                        <IconComponent className="w-8 h-8 text-gray-400 group-hover:text-[#ffcc00] group-hover:scale-110 transition-all duration-300" />
                     </div>
+                </div>
 
-                    <div className="flex justify-between items-center w-full mb-3 px-1">
-                        <h4 className="text-white font-medium">{skill.name}</h4>
-                        <span className="text-[10px] font-mono text-[#ffcc00] opacity-0 group-hover:opacity-100 transition-opacity">
-                            {skill.level}%
-                        </span>
-                    </div>
+                <div className="flex flex-col items-center w-full">
+                    <h4 className="text-white font-bold text-sm md:text-base tracking-tight">{skill.name}</h4>
+                    <span className="text-[10px] font-mono text-[#ffcc00] mt-1">
+                        {skill.level}% Confidence
+                    </span>
                     
-                    {/* Progress Bar Container */}
-                    <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
-                        <motion.div
-                            className="h-full bg-gradient-to-r from-[#ffcc00] to-orange-500 rounded-full relative"
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 + (index * 0.1) }}
-                        >
-                            <motion.div 
-                                className="absolute right-0 top-0 bottom-0 w-2 bg-white/40 blur-[2px]"
-                                animate={{ opacity: [0.5, 1, 0.5] }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                            />
-                        </motion.div>
+                    <div className="w-full h-1 bg-gray-800 rounded-full overflow-hidden mt-3">
+                        <div 
+                            className="h-full bg-gradient-to-r from-[#ffcc00] to-orange-500 rounded-full"
+                            style={{ width: `${skill.level}%` }}
+                        />
                     </div>
-                </motion.div>
+                </div>
             </motion.div>
         );
     };
 
+    const FloatingBackground = () => {
+        const floatingIcons = ['react', 'javascript', 'mongodb', 'cplusplus', 'figma', 'html5', 'css3', 'git'];
+        
+        return (
+            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
+                {floatingIcons.map((icon, i) => {
+                    const Icon = iconMap[icon];
+                    return (
+                        <motion.div
+                            key={`float-${i}`}
+                            className="absolute text-white"
+                            initial={{ 
+                                x: Math.random() * 100 + "%", 
+                                y: Math.random() * 100 + "%",
+                                rotate: 0 
+                            }}
+                            animate={{ 
+                                x: [
+                                    `${Math.random() * 80}%`, 
+                                    `${Math.random() * 80}%`, 
+                                    `${Math.random() * 80}%`
+                                ],
+                                y: [
+                                    `${Math.random() * 80}%`, 
+                                    `${Math.random() * 80}%`, 
+                                    `${Math.random() * 80}%`
+                                ],
+                                rotate: [0, 180, 360]
+                            }}
+                            transition={{ 
+                                duration: 20 + Math.random() * 30, 
+                                repeat: Infinity, 
+                                ease: "linear" 
+                            }}
+                        >
+                            <Icon size={40 + Math.random() * 60} />
+                        </motion.div>
+                    );
+                })}
+            </div>
+        );
+    };
+
     return (
-        <section id="skills" className="py-20 text-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
+        <section id="skills" className="py-24 text-white relative overflow-hidden bg-[#070707]">
+            <FloatingBackground />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header */}
                 <motion.div
-                    className="flex flex-col items-center justify-center mb-16"
+                    className="flex flex-col items-center justify-center mb-20"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h2 className="text-3xl md:text-5xl font-display font-bold text-center">
-                        My <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffcc00] to-orange-500">Skills</span>
+                    <h2 className="text-4xl md:text-6xl font-display font-black text-center tracking-tight uppercase">
+                        Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffcc00] to-orange-500">Expertise</span>
                     </h2>
-                    <div className="h-1 w-20 bg-gradient-to-r from-[#ffcc00] to-orange-500 rounded-full mt-4"></div>
+                    <div className="h-1.5 w-32 bg-gradient-to-r from-[#ffcc00] to-orange-500 rounded-full mt-4 shadow-[0_0_15px_rgba(255,204,0,0.5)]"></div>
+                    <p className="text-gray-400 mt-6 text-center max-w-2xl text-lg font-medium">
+                        A loop of technologies I've mastered to build pixel-perfect, scalable web solutions.
+                    </p>
                 </motion.div>
 
-                <div className="space-y-16">
-                    {/* Technical Skills */}
-                    <div>
-                        <motion.h3
-                            className="text-xl md:text-2xl font-bold mb-8 flex items-center gap-3"
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                        >
-                            <span className="w-10 h-10 rounded-xl bg-[#ffcc00]/10 flex items-center justify-center border border-[#ffcc00]/20">
-                                <HiCode className="text-[#ffcc00] w-6 h-6" />
-                            </span>
-                            Technical Skills
-                        </motion.h3>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                            {technicalSkills.map((skill, index) => renderSkillCard(skill, index))}
+                <div className="space-y-12">
+                    {/* Row 1: Left Scrolling */}
+                    <div className="relative group">
+                        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                            <motion.div 
+                                className="flex gap-6 py-4"
+                                animate={{ x: ["0%", "-50%"] }}
+                                transition={{ 
+                                    duration: 30, 
+                                    repeat: Infinity, 
+                                    ease: "linear" 
+                                }}
+                            >
+                                {firstRow.map((skill, index) => renderSkillCard(skill, index))}
+                            </motion.div>
                         </div>
                     </div>
 
-                    {/* Design Skills */}
-                    <div>
-                        <motion.h3
-                            className="text-xl md:text-2xl font-bold mb-8 flex items-center gap-3"
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                        >
-                            <span className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center border border-orange-500/20">
-                                <HiColorSwatch className="text-orange-400 w-6 h-6" />
-                            </span>
-                            Tools & Design
-                        </motion.h3>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                            {designSkills.map((skill, index) => renderSkillCard(skill, index))}
+                    {/* Row 2: Right Scrolling (Reverse) */}
+                    <div className="relative group">
+                        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                            <motion.div 
+                                className="flex gap-6 py-4"
+                                animate={{ x: ["-50%", "0%"] }}
+                                transition={{ 
+                                    duration: 25, 
+                                    repeat: Infinity, 
+                                    ease: "linear" 
+                                }}
+                            >
+                                {secondRow.map((skill, index) => renderSkillCard(skill, index))}
+                            </motion.div>
                         </div>
                     </div>
                 </div>
+
+                {/* Bottom Stats */}
+                <motion.div 
+                    className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 px-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                >
+                    {[
+                        { label: "Frontend", value: "95%", icon: <SiMongodb className="rotate-12" /> },
+                        { label: "Backend", value: "85%", icon: <HiCode /> },
+                        { label: "Design", value: "80%", icon: <HiColorSwatch /> },
+                        { label: "Performance", value: "90%", icon: <FaRocket /> },
+                    ].map((stat, i) => (
+                        <div key={i} className="flex flex-col items-center p-6 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm">
+                            <div className="text-[#ffcc00] text-3xl mb-3">{stat.icon}</div>
+                            <div className="text-2xl font-black text-white">{stat.value}</div>
+                            <div className="text-xs text-gray-400 font-bold uppercase tracking-widest mt-1">{stat.label}</div>
+                        </div>
+                    ))}
+                </motion.div>
             </div>
         </section>
     );
 };
+
+export default Skills;
 
 export default Skills;
