@@ -4,13 +4,13 @@ import { FaGithub, FaExternalLinkAlt, FaYoutube, FaGamepad, FaCode, FaLaptopCode
 import { projects } from '../data';
 
 const projectImages = {
-    spotify: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop',
-    microsoft: 'https://images.unsplash.com/photo-1633419461186-7d40a38105ec?w=600&h=400&fit=crop',
-    adobe: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&h=400&fit=crop',
-    agrisaar: 'https://images.unsplash.com/photo-1495539406979-bf61750d38ad?w=600&h=400&fit=crop',
-    irctc: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&h=400&fit=crop',
-    games: 'https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=600&h=400&fit=crop',
-    frontend: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=400&fit=crop',
+    spotify: '/projects/spotify.png',
+    microsoft: '/projects/microsoft.png',
+    adobe: '/projects/adobe.png',
+    agrisaar: '/projects/agrisaar.png',
+    irctc: '/projects/irctc.png',
+    games: '/projects/games.png',
+    frontend: '/projects/frontend.png',
 };
 
 const Projects = () => {
