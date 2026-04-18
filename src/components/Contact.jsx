@@ -33,13 +33,19 @@ const Contact = () => {
         setSubmitStatus(null);
         
         try {
-            // Using the Direct Email endpoint - Check your inbox for verification!
-            const response = await fetch(`https://formspree.io/f/xrgpjkww`, {
+            // Using FormSubmit.co - The easiest way to receive emails directly!
+            const targetEmail = 'sumit.m.kumar.cg@gmail.com'; 
+            const response = await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({
+                    ...formData,
+                    _subject: `New Portfolio Message from ${formData.name}`,
+                    _captcha: 'false'
+                })
             });
 
             if (response.ok) {
