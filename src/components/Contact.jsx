@@ -31,18 +31,30 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setSubmitStatus(null);
         
-        // Formspree Integration ready - just replace 'YOUR_FORMSPREE_ID'
-        // For now, simulating a high-quality submission experience
         try {
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            setSubmitStatus('success');
-            setFormData({ name: '', email: '', message: '' });
+            // REPLACE 'xrgpjkww' with your real Formspree ID to start receiving emails!
+            const FORMSPREE_ID = 'xrgpjkww'; 
+            const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                setSubmitStatus('success');
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                throw new Error('Failed to send');
+            }
         } catch (error) {
             setSubmitStatus('error');
         } finally {
             setIsSubmitting(false);
-            setTimeout(() => setSubmitStatus(null), 5000);
+            setTimeout(() => setSubmitStatus(null), 8000);
         }
     };
 
