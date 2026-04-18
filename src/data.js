@@ -67,6 +67,16 @@ export const projects = [
     image: "agrisaar",
   },
   {
+    id: 8,
+    title: "NearFix",
+    category: "Full Stack Application",
+    description: "A high-performance service marketplace in Rust, connecting users with trusted local professionals for home services.",
+    techStack: ["React", "Rust", "Tailwind CSS", "Vite"],
+    github: "https://github.com/sumit22102006/nearfix.git",
+    liveDemo: "https://nearfix-rust.vercel.app/",
+    image: "nearfix",
+  },
+  {
     id: 2,
     title: "IRCTC One",
     category: "Full Stack Application",

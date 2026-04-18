@@ -9,6 +9,7 @@ const projectImages = {
     adobe: '/projects/adobe.png',
     agrisaar: '/projects/agrisaar.png',
     irctc: '/projects/irctc.png',
+    nearfix: '/projects/nearfix.png',
     games: '/projects/games.png',
     frontend: '/projects/frontend.png',
 };
