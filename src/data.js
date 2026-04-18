@@ -90,6 +90,7 @@ export const hackathons = [
   {
     id: 1,
     title: "AgriSaar",
+    type: "offline",
     description: "A comprehensive agricultural platform designed to empower farmers with market insights, bio-fertilizer recommendations, AI voice assistant features, and community networking. Built during an intensive hackathon to solve real-world farming challenges.",
     techStack: ["React", "FastAPI", "Node.js", "AI/ML"],
     github: "https://github.com/sumit22102006/AgriSaar",
@@ -99,6 +100,22 @@ export const hackathons = [
     features: [
       "AI Voice Assistant for guided tours",
       "Real-time Market Insights",
+    ]
+  },
+  {
+    id: 2,
+    title: "IRCTC One",
+    type: "online",
+    description: "A streamlined platform designed to simplify the ticket booking and travel management experience for railway users. Focused on real-time updates and seamless user interface.",
+    techStack: ["React", "Vite", "Tailwind CSS"],
+    github: "https://github.com/sumit22102006",
+    liveDemo: "https://irctc-one.vercel.app/",
+    youtube: "https://youtu.be/z-h_7Y1rNqY?si=z8yXpTUKZshjK8rY",
+    image: "irctc",
+    award: "Hackathon Project",
+    features: [
+      "Live PNR Status",
+      "Seamless Booking Interface",
     ]
   }
 ];
