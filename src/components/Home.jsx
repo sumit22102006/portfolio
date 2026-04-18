@@ -101,8 +101,9 @@ const Home = () => {
                     transition={{ delay: 0.9 }}
                 >
                     <a 
-                        href="/resume.pdf" 
+                        href="https://drive.google.com/file/d/1Lx-7Z4WYVIwS53vDwrh1Vl5e8wbYeB1g/view?usp=drive_link" 
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 bg-[#ffcc00] hover:bg-[#e6b800] text-black px-10 py-4 rounded-full font-bold transition-all transform hover:scale-105"
                     >
                         Resume <FaDownload className="text-sm" />
