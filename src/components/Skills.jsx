@@ -71,41 +71,43 @@ const Skills = () => {
     };
 
     const FloatingBackground = () => {
-        const floatingIcons = ['react', 'javascript', 'mongodb', 'cplusplus', 'figma', 'html5', 'css3', 'git'];
+        const floatingIcons = [
+            { icon: 'react', top: '10%', left: '15%', size: 80, delay: 0 },
+            { icon: 'javascript', top: '70%', left: '10%', size: 60, delay: 2 },
+            { icon: 'mongodb', top: '20%', left: '80%', size: 70, delay: 4 },
+            { icon: 'cplusplus', top: '80%', left: '75%', size: 90, delay: 1 },
+            { icon: 'figma', top: '40%', left: '85%', size: 50, delay: 3 },
+            { icon: 'html5', top: '60%', left: '20%', size: 65, delay: 5 },
+            { icon: 'css3', top: '15%', left: '40%', size: 55, delay: 0 },
+            { icon: 'git', top: '85%', left: '45%', size: 75, delay: 2 },
+        ];
         
         return (
-            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
-                {floatingIcons.map((icon, i) => {
-                    const Icon = iconMap[icon];
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {floatingIcons.map((item, i) => {
+                    const Icon = iconMap[item.icon];
                     return (
                         <motion.div
                             key={`float-${i}`}
-                            className="absolute text-white"
-                            initial={{ 
-                                x: Math.random() * 100 + "%", 
-                                y: Math.random() * 100 + "%",
-                                rotate: 0 
+                            className="absolute text-[#ffcc00]/20"
+                            style={{ 
+                                top: item.top, 
+                                left: item.left,
                             }}
                             animate={{ 
-                                x: [
-                                    `${Math.random() * 80}%`, 
-                                    `${Math.random() * 80}%`, 
-                                    `${Math.random() * 80}%`
-                                ],
-                                y: [
-                                    `${Math.random() * 80}%`, 
-                                    `${Math.random() * 80}%`, 
-                                    `${Math.random() * 80}%`
-                                ],
-                                rotate: [0, 180, 360]
+                                y: [0, -40, 0],
+                                x: [0, 20, 0],
+                                rotate: [0, 10, -10, 0],
+                                scale: [1, 1.1, 1],
                             }}
                             transition={{ 
-                                duration: 20 + Math.random() * 30, 
+                                duration: 8 + Math.random() * 4, 
                                 repeat: Infinity, 
-                                ease: "linear" 
+                                ease: "easeInOut",
+                                delay: item.delay
                             }}
                         >
-                            <Icon size={40 + Math.random() * 60} />
+                            <Icon size={item.size} />
                         </motion.div>
                     );
                 })}
