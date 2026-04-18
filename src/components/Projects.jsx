@@ -78,7 +78,7 @@ const Projects = () => {
                 {/* Projects Grid */}
                 <motion.div 
                     layout
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 group/grid"
                 >
                     <AnimatePresence mode="popLayout">
                         {filteredProjects.map((project) => (
@@ -88,8 +88,13 @@ const Projects = () => {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
+                                whileHover={{ 
+                                    scale: 1.05, 
+                                    zIndex: 10,
+                                    transition: { duration: 0.3 }
+                                }}
                                 transition={{ duration: 0.3 }}
-                                className="flex flex-col bg-[#111]/80 backdrop-blur-xl rounded-2xl border border-white/5 overflow-hidden hover:border-[#ffcc00]/50 shadow-2xl transition-all duration-300 group"
+                                className="flex flex-col bg-[#111]/80 backdrop-blur-xl rounded-2xl border border-white/5 overflow-hidden hover:border-[#ffcc00]/50 shadow-2xl transition-all duration-300 relative group/card opacity-100 group-hover/grid:opacity-40 hover:!opacity-100"
                             >
                                 {/* Project Image */}
                                 <div className="relative w-full h-52 overflow-hidden">
