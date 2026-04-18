@@ -185,32 +185,6 @@ const Contact = () => {
                         </div>
                     </motion.div>
 
-                            <div className="mt-12 pt-10 border-t border-white/5">
-                                <h4 className="text-sm font-black text-gray-500 uppercase tracking-widest mb-6 text-center">Follow My Work</h4>
-                                <div className="flex justify-center gap-5">
-                                    {[
-                                        { icon: FaGithub, href: personalInfo.socials.github, label: 'GitHub' },
-                                        { icon: FaLinkedinIn, href: personalInfo.socials.linkedin, label: 'LinkedIn' },
-                                        { icon: FaTwitter, href: personalInfo.socials.twitter, label: 'Twitter' },
-                                        { icon: FaYoutube, href: personalInfo.socials.youtube, label: 'YouTube' },
-                                    ].map((social, idx) => (
-                                        <motion.a
-                                            key={idx}
-                                            href={social.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            whileHover={{ y: -5, scale: 1.1 }}
-                                            className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#ffcc00] hover:border-[#ffcc00] transition-all duration-300 shadow-xl"
-                                            aria-label={social.label}
-                                        >
-                                            <social.icon className="w-5 h-5" />
-                                        </motion.a>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-
                     {/* Contact Form - Span 3 columns */}
                     <motion.div
                         className="lg:col-span-3 lg:mt-0"
