@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     HiMail, HiPhone, HiLocationMarker, HiPaperAirplane, HiCheckCircle, HiClipboardCopy
 } from 'react-icons/hi';
-import { FaGithub, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn, FaTwitter, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { personalInfo } from '../data';
 
 const Contact = () => {
@@ -13,9 +13,8 @@ const Contact = () => {
         message: '',
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+    const [submitStatus, setSubmitStatus] = useState(null); 
     const [copied, setCopied] = useState(false);
-    const formRef = useRef();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -34,9 +33,8 @@ const Contact = () => {
         setSubmitStatus(null);
         
         try {
-            // REPLACE 'xrgpjkww' with your real Formspree ID to start receiving emails!
-            const FORMSPREE_ID = 'xrgpjkww'; 
-            const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+            // Using the Direct Email endpoint - Check your inbox for verification!
+            const response = await fetch(`https://formspree.io/f/xrgpjkww`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -79,7 +77,7 @@ const Contact = () => {
                     </h2>
                     <div className="h-1.5 w-32 bg-gradient-to-r from-[#ffcc00] to-orange-500 rounded-full mt-4 shadow-[0_0_15px_rgba(255,204,0,0.5)]"></div>
                     <p className="text-gray-400 mt-8 text-center max-w-2xl text-lg font-medium">
-                        I'm currently available for freelance work and full-time opportunities. Reach out and let's build something extraordinary.
+                        Need a fast response? Use the Contact Form or hit the **WhatsApp Fast Lane** below.
                     </p>
                 </motion.div>
 
@@ -128,11 +126,11 @@ const Contact = () => {
                                             <p className="text-xs text-gray-500 font-black uppercase tracking-[0.2em] mb-1">{item.label}</p>
                                             <div className="flex items-center gap-2">
                                                 {item.href ? (
-                                                    <a href={item.href} className="text-lg md:text-xl text-white font-bold hover:text-[#ffcc00] transition-colors truncate block">
+                                                    <a href={item.href} className="text-base text-white font-bold hover:text-[#ffcc00] transition-colors truncate block">
                                                         {item.value}
                                                     </a>
                                                 ) : (
-                                                    <p className="text-lg md:text-xl text-white font-bold truncate">{item.value}</p>
+                                                    <p className="text-base text-white font-bold truncate">{item.value}</p>
                                                 )}
                                                 {item.isCopyable && (
                                                     <button 
@@ -148,6 +146,44 @@ const Contact = () => {
                                     </div>
                                 ))}
                             </div>
+
+                            {/* WhatsApp Fast Lane */}
+                            <div className="mt-10">
+                                <a 
+                                    href={`https://wa.me/${personalInfo.phone.replace(/[^0-9]/g, '')}`} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center gap-3 w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-black py-4 rounded-2xl transition-all duration-300 shadow-xl group"
+                                >
+                                    <FaWhatsapp className="w-6 h-6 group-hover:scale-125 transition-transform" />
+                                    <span>WhatsApp Fast Lane</span>
+                                </a>
+                            </div>
+
+                            <div className="mt-8 pt-8 border-t border-white/5">
+                                <div className="flex justify-center gap-5">
+                                    {[
+                                        { icon: FaGithub, href: personalInfo.socials.github, label: 'GitHub' },
+                                        { icon: FaLinkedinIn, href: personalInfo.socials.linkedin, label: 'LinkedIn' },
+                                        { icon: FaTwitter, href: personalInfo.socials.twitter, label: 'Twitter' },
+                                        { icon: FaYoutube, href: personalInfo.socials.youtube, label: 'YouTube' },
+                                    ].map((social, idx) => (
+                                        <motion.a
+                                            key={idx}
+                                            href={social.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            whileHover={{ y: -5, scale: 1.1 }}
+                                            className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#ffcc00] hover:border-[#ffcc00] transition-all duration-300"
+                                            aria-label={social.label}
+                                        >
+                                            <social.icon className="w-4 h-4" />
+                                        </motion.a>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
 
                             <div className="mt-12 pt-10 border-t border-white/5">
                                 <h4 className="text-sm font-black text-gray-500 uppercase tracking-widest mb-6 text-center">Follow My Work</h4>
